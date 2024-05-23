@@ -1,72 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corinthians | Cadastro</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="img/logooo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corinthians | Cadastro</title>
+
+  <script src="./js/sessao.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="img/logooo.png">
 </head>
-<body>
 
-    <div class="header">
-        <div class="container">
-            <div class="logo"> <img src="img/sccp2.jpg" alt=""></div>
-            <ul class="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-                <li><a href="titulos.html">Titulos</a></li>
-                <li>|</li>
-                <li><a href="login.html">Login</a></li>
-                <li class="agora">Cadastro</li>
-            </ul>
-        </div>
+<body onload="listar()">
+
+  <div class="header">
+    <div class="container">
+      <div class="logo"> <img src="img/sccp2.jpg" alt=""></div>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="titulos.html">Titulos</a></li>
+        <li>|</li>
+        <li><a href="login.html">Login</a></li>
+        <li class="agora">Cadastro</li>
+      </ul>
     </div>
+  </div>
 
-    <div class="cadastro">
-        <div class="container">
-            <div class="card3">
-                <div class="icone"><img src="img/logincadsatro.png" alt=""></div>
-                <h2>Cadastro</h2>
-
-                <div class="formulario">
-
-                    <label>Nome</label>
-                    <div class="input">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Nome">
-                    </div>
-
-
-                    <label>E-mail</label>
-                    <div class="input">
-                        <i class="fa-solid fa-envelope"></i>
-                        <input type="text" placeholder="Email">
-                    </div>
-
-                    <label>Senha</label>
-                    <div class="input">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="text" placeholder="******">
-                    </div>
-
-                    <label>Confirme sua senha</label>
-                    <div class="input">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="text" placeholder="******">
-                    </div>
-
-                    <button>Cadastrar</button>
-                </div>
-            </div>
-        </div>
+  <div class="cadastro">
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
     </div>
+    <div class="container">
+      <div class="card3">
+        <div class="icone"><img src="img/logincadsatro.png" alt=""></div>
+        <h2>Cadastro</h2>
 
-    <div class="footer">
-        <div class="container">
-            <p>Feito pelos alunos 1CCO &hearts; SPTECH &copy;</p>
+        <div class="formulario">
+
+          <span>Empresa:</span>
+          <select name="empresas" id="listaEmpresas">
+            <option selected>Selecione uma empresa</option>
+          </select>
+
+          <label>Nome</label>
+          <div class="input">
+            <i class="fa-solid fa-user"></i>
+            <input id="nome_input" type="text" placeholder="Seu nome" />
+          </div>
+
+          <label>E-mail</label>
+          <div class="input">
+            <i class="fa-solid fa-envelope"></i>
+            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+          </div>
+
+          <label>Senha</label>
+          <div class="input">
+            <i class="fa-solid fa-lock"></i>
+            <input id="senha_input" type="password" placeholder="******" />
+          </div>
+
+          <label>Confirme sua senha</label>
+          <div class="input">
+            <i class="fa-solid fa-lock"></i>
+            <input id="confirmacao_senha_input" type="password" placeholder="******" />
+          </div>
+
+          <button class="botao" onclick="cadastrar()">Cadastrar</button>
+
         </div>
+        <div id="div_aguardar" class="loading-div">
+          <img src="./assets/circle-loading.gif" id="loading-gif" />
+        </div>
+
+        <div id="div_erros_login"></div>
+      </div>
     </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <p>Feito pelos alunos 1CCO &hearts; SPTECH &copy;</p>
+    </div>
+  </div>
 
 </body>
 
