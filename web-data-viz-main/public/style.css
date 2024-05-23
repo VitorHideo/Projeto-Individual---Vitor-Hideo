@@ -120,8 +120,9 @@ body {
 }
 
 .card_idolo img {
-    width: 100px;
-    height: 87px;
+    width: 250px;
+    height: 350px;
+    border-radius: 20px;
 }
 
 .footer {
