@@ -10,13 +10,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styledash.css">
-    <script src="dash.js"></script>
+    <script defer src="dash.js"></script>
   </head>
   <body>
     <div class="container">
-      <header>
-        <h1>Quizz de Programação</h1>
-      </header>
       <main>
         <!-- QUIZZ CONTAINER -->
         <div id="quizz-container">
@@ -25,10 +22,10 @@
             <span id="question-text">Qual é a unidade de medida para metros?</span>
           </p>
           <div id="answers-box">
-            <button><span class="btn-letter"></span> <span class="question-answer"></span></button>
-            <button><span class="btn-letter"></span> <span class="question-answer"></span></button>
-            <button><span class="btn-letter"></span> <span class="question-answer"></span></button>
-            <button><span class="btn-letter"></span> <span class="question-answer"></span></button>
+            <button class="answer-template hide">
+              <span class="btn-letter"></span> 
+              <span class="question-answer"></span>
+            </button>
           </div>
         </div>
 
@@ -42,21 +39,7 @@
           </p>
           <button id="restart">Refazer quizz!</button>
         </div>
-
-        <!-- TEMPLATE RESPOSTA -->
-        <button class="answer-template hide">
-          <span class="btn-letter"></span> <span class="question-answer"></span>
-        </button>
       </main>
-      <footer>
-        <p>
-          <strong>Copyright</strong> &copy; 2020
-          <a href="https://github.com/lucianesantcs/"><strong>Luciane Santos</strong></a> /
-          <a href="https://www.linkedin.com/in/matheusbattisti/"
-            ><strong>Matheus Battisti</strong></a
-          >
-        </p>
-      </footer>
     </div>
   </body>
 </html>

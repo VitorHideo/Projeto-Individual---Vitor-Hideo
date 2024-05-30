@@ -10,64 +10,211 @@ let actualQuestion = 0;
 // perguntas
 const questions = [
   {
-    question: 'PHP foi desenvolvido para qual fim?',
+    question: 'Quando o Corinhians foi fundado?',
     answers: [
       {
-        answer: 'Back-End',
+        answer: '1910',
         correct: true,
       },
       {
-        answer: 'Front-End',
+        answer: '1911',
         correct: false,
       },
       {
-        answer: 'Sistema operacional',
+        answer: '1908',
         correct: false,
       },
       {
-        answer: 'Banco de dados',
+        answer: '1915',
         correct: false,
       },
     ],
   },
   {
-    question: 'Uma forma de declarar variável em JavaScript:',
+    question: 'Em qual ano o Corinhians consquistou o seu primeiro campeonado Paulista?',
     answers: [
       {
-        answer: '$var',
+        answer: '1912',
         correct: false,
       },
       {
-        answer: 'var',
+        answer: '1914',
         correct: true,
       },
       {
-        answer: '@var',
+        answer: '1918',
         correct: false,
       },
       {
-        answer: '#let',
+        answer: '1915',
         correct: false,
       },
     ],
   },
   {
-    question: 'Qual o seletor de id no CSS?',
+    question: 'Qual desses jogadores tem mais gols pelo Corinthians?',
     answers: [
       {
-        answer: '#',
+        answer: 'Sócrates',
+        correct: false,
+      },
+      {
+        answer: 'Luizinho',
         correct: true,
       },
       {
-        answer: '.',
+        answer: 'Rivellino',
         correct: false,
       },
       {
-        answer: '@',
+        answer: 'Casagrande',
+        correct: false,
+      },
+    ],
+  },
+  {
+    question: 'Em que dia foi fundado o Corinthians?',
+    answers: [
+      {
+        answer: 'Dia 2º outubro',
         correct: false,
       },
       {
-        answer: '/',
+        answer: 'Dia 30º de outubro',
+        correct: false,
+      },
+      {
+        answer: 'Dia 1º de setembro',
+        correct: true,
+      },
+      {
+        answer: 'Dia 30º de setembro',
+        correct: false,
+      },
+    ],
+  },
+  {
+    question: 'Quem fez o gol decisivo na final do campeonato paulista em 2019 contra o São Paulo?',
+    answers: [
+      {
+        answer: 'Clayson',
+        correct: false,
+      },
+      {
+        answer: 'Danilo Avelar',
+        correct: false,
+      },
+      {
+        answer: 'Fagner',
+        correct: false,
+      },
+      {
+        answer: 'Vagner Love',
+        correct: true,
+      },
+    ],
+  },
+  {
+    question: 'Qual é a capacidade de publico da Neo Quimica Arena?',
+    answers: [
+      {
+        answer: '46.300',
+        correct: false,
+      },
+      {
+        answer: '49.205',
+        correct: true,
+      },
+      {
+        answer: '44.810',
+        correct: false,
+      },
+      {
+        answer: '48.400',
+        correct: false,
+      },
+    ],
+  },
+  {
+    question: 'Como o atacante Paolo Guerreiro fez o gol na final do Mundial em 2012?',
+    answers: [
+      {
+        answer: 'Cabeça',
+        correct: true,
+      },
+      {
+        answer: 'Chute normal',
+        correct: false,
+      },
+      {
+        answer: 'Pênalti',
+        correct: false,
+      },
+      {
+        answer: 'Cobertura',
+        correct: false,
+      },
+    ],
+  },
+  {
+    question: 'No primeiro jogo da final da Libertadores de 2012 que ocorreu na La Bombonera, que jogador do Corinthians tentou defender a bola com a mão?',
+    answers: [
+      {
+        answer: 'Fábio Santos',
+        correct: false,
+      },
+      {
+        answer: 'Ralf',
+        correct: false,
+      },
+      {
+        answer: 'Alessandro',
+        correct: false,
+      },
+      {
+        answer: 'Chicão',
+        correct: true,
+      },
+    ],
+  },
+  {
+    question: 'Quantos titulos o técnico Tite conquistou pelo Corinthians?',
+    answers: [
+      {
+        answer: '5',
+        correct: true,
+      },
+      {
+        answer: '6',
+        correct: false,
+      },
+      {
+        answer: '3',
+        correct: false,
+      },
+      {
+        answer: '4',
+        correct: false,
+      },
+    ],
+  },
+  {
+    question: 'Quantos gols o Roger Guedes tem pelo Corinthians?',
+    answers: [
+      {
+        answer: '31',
+        correct: false,
+      },
+      {
+        answer: '35',
+        correct: false,
+      },
+      {
+        answer: '43',
+        correct: true,
+      },
+      {
+        answer: '47',
         correct: false,
       },
     ],
@@ -85,7 +232,9 @@ function createQuestion(i) {
   // limpar questão anterior
   const oldButtons = answerBox.querySelectorAll('button');
   oldButtons.forEach((btn) => {
-    btn.remove();
+    if (!btn.classList.contains('answer-template')) {
+      btn.remove();
+    }
   });
 
   // alterar texto da pergunta
@@ -184,7 +333,7 @@ function showSuccessMessage() {
   totalQuestions.textContent = questions.length;
 }
 
-// mostra ou esonde o score
+// mostra ou esconde o score
 function hideOrShowQuizz() {
   quizzContainer.classList.toggle('hide');
   scoreContainer.classList.toggle('hide');

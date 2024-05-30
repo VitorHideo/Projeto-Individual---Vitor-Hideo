@@ -1,16 +1,21 @@
-/* GERAL */
+/* Importando a fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* Resetando margens e paddings e configurando a fonte padrão */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Nunito Sans', Arial, Helvetica, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
+/* Configurando o background e cor do texto do corpo */
 body {
   background-color: #ffffff;
-  color: #ffffff;
+  color: #222222;
 }
 
+/* Estilo para links */
 a {
   color: #ffffff;
   text-decoration: none;
@@ -21,6 +26,7 @@ a:hover {
   color: #00c9c8;
 }
 
+/* Removendo o foco de elementos */
 textarea:focus,
 input:focus,
 select:focus,
@@ -30,16 +36,17 @@ button:focus {
   outline: 0;
 }
 
+/* Configurando o layout do container */
 .container {
   display: grid;
   grid-template-areas:
     'header'
     'main'
     'footer';
-  position: relative;
   height: 100vh;
 }
 
+/* Estilo para header, main e footer */
 header,
 main,
 footer {
@@ -51,7 +58,6 @@ footer {
 header,
 footer {
   width: 100%;
-  height: 100px;
   padding: 30px 0;
   background-color: #2a272a;
 }
@@ -63,20 +69,18 @@ header {
 main {
   grid-area: main;
   margin-top: 20px;
-  margin-bottom: 140px;
 }
 
 footer {
   grid-area: footer;
-  position: absolute;
-  bottom: 0;
 }
 
+/* Esconder elementos */
 .hide {
   display: none !important;
 }
 
-/* SCORE CONTAINER */
+/* Estilo para o quizz e score container */
 #quizz-container,
 #score-container {
   color: #222222;
@@ -84,10 +88,6 @@ footer {
   padding: 25px;
   border: 1px solid #e0e0e0;
   box-shadow: 7px 10px 0px rgba(0, 0, 0, 0.1);
-}
-
-#quizz-container,
-#score-container {
   width: 500px;
   max-width: 90%;
 }
@@ -129,7 +129,7 @@ footer {
   color: #ffffff;
 }
 
-/* Quizz container */
+/* Estilo para a pergunta */
 #question {
   text-align: center;
   margin-bottom: 25px;
@@ -138,16 +138,19 @@ footer {
   font-weight: bold;
 }
 
+/* Estilo para as opções de resposta */
 #answers-box button {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   margin: 15px 0;
   width: 100%;
-  border: none;
-  text-align: left;
+  border: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
   color: #222222;
   cursor: pointer;
   transition: 0.5s;
+  padding: 10px;
+  text-align: left;
 }
 
 #answers-box button:hover {
@@ -156,7 +159,7 @@ footer {
 }
 
 #answers-box .btn-letter {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
   background-color: #2a272a;
   border: none;
@@ -165,20 +168,19 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1 1 0;
-  padding: 5px;
-  max-width: 45px;
+  flex: 0 0 45px;
+  height: 45px;
+  margin-right: 10px;
 }
 
 .question-answer {
-  flex: 1 1 0;
-  display: flex;
-  padding: 10px 0;
-  align-items: center;
-  margin-left: 10px;
+  flex: 1;
   font-size: 16px;
+  align-items: center;
+  display: flex;
 }
 
+/* Estilo para respostas corretas e incorretas */
 #quizz-container .wrong-answer,
 #quizz-container .wrong-answer .btn-letter {
   background-color: #e62210;
@@ -193,12 +195,22 @@ footer {
   border: none;
 }
 
-/* RESPONSIVO */
+/* Estilos responsivos */
 @media (max-width: 450px) {
   #quizz-container,
   #score-container {
     border: none;
     width: 100%;
     box-shadow: none;
+  }
+
+  #answers-box .btn-letter {
+    font-size: 18px;
+    flex: 0 0 35px;
+    height: 35px;
+  }
+
+  .question-answer {
+    font-size: 14px;
   }
 }
