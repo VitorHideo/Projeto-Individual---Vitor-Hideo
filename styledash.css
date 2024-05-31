@@ -144,7 +144,8 @@ footer {
   align-items: center;
   margin: 15px 0;
   width: 100%;
-  border: 1px solid #e0e0e0;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
   background-color: #f9f9f9;
   color: #222222;
   cursor: pointer;
@@ -154,7 +155,7 @@ footer {
 }
 
 #answers-box button:hover {
-  background-color: #2a272a;
+  background-color: #5c5b5c;
   color: #fff;
 }
 

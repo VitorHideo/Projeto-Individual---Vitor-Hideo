@@ -178,43 +178,43 @@ const questions = [
     ],
   },
   {
-    question: 'Quantos titulos o técnico Tite conquistou pelo Corinthians?',
+    question: 'Quantos pênaltis o goleiro Cassio defendeu pelo Corinthians?',
     answers: [
       {
-        answer: '5',
+        answer: '30',
+        correct: false,
+      },
+      {
+        answer: '27',
+        correct: false,
+      },
+      {
+        answer: '32',
         correct: true,
       },
       {
-        answer: '6',
-        correct: false,
-      },
-      {
-        answer: '3',
-        correct: false,
-      },
-      {
-        answer: '4',
+        answer: '22',
         correct: false,
       },
     ],
   },
   {
-    question: 'Quantos gols o Roger Guedes tem pelo Corinthians?',
+    question: 'Contra qual time o Corinthians ganhou o campeonato Paulista de 1977?',
     answers: [
       {
-        answer: '31',
+        answer: 'Palmeiras',
         correct: false,
       },
       {
-        answer: '35',
+        answer: 'Portuguesa',
         correct: false,
       },
       {
-        answer: '43',
+        answer: 'Ponte Preta',
         correct: true,
       },
       {
-        answer: '47',
+        answer: 'São Paulo',
         correct: false,
       },
     ],
@@ -234,6 +234,9 @@ function createQuestion(i) {
   oldButtons.forEach((btn) => {
     if (!btn.classList.contains('answer-template')) {
       btn.remove();
+    } else {
+      // Limpar classes de respostas corretas e incorretas
+      btn.classList.remove('correct-answer', 'wrong-answer');
     }
   });
 
@@ -308,9 +311,8 @@ function nextQuestion() {
       showSuccessMessage();
       return;
     }
-
     createQuestion(actualQuestion);
-  }, 1200);
+  }, 1000);
 }
 
 // exibe a tela final
