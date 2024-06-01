@@ -11,8 +11,10 @@
     
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
+    <link rel="stylesheet" href="quiz.css">
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
+    <script src="quiz.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -28,56 +30,55 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
-<body>
+    <body>
 
-    <div class="janela">
         <div class="header-left">
-            <h1>SCCP</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
-            </div>
-
+          <h1>SCCP</h1>
+    
+          <div class="hello">
+            <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+          </div>
+    
+          <div class="btn-nav-white">
+            <a href="./cards.html">
+              <h3>Home</h3>
+            </a>
+          </div>
+    
+          <div class="btn-nav">
+    
+            <h3>Quiz</h3>
+    
+          </div>
+    
+          <div class="btn-nav-white">
+            <a href="./mural.html">
+              <h3>Forum</h3>
+            </a>
+          </div>
+    
+          <div class="btn-logout" onclick="limparSessao()">
+            <h3>Sair</h3>
+          </div>
+    
         </div>
-
-        <div class="dash">
-            <div id="alerta">
-            </div>
-
-            <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-            </div>
-            <div id="graficos">
-            </div>
+    
+        <div class="container">
+        <div id="quiz-container">
+          <p id="question" class="question"></p>
+          <div id="answers-box"></div>
         </div>
-    </div>
-
-
-</body>
-
-</html>
+        <div id="score-container">
+          <h2>Parabéns</h2>
+          <p id="display-score"></p>
+          <p>Você acertou <span id="correct-answers"></span> de <span id="questions-qty"></span> perguntas</p>
+          <button id="restart">Refazer quizz!</button>
+        </div>
+      </div>
+      <script src="quiz.js"></script>
+    </body>
+    
+    </html>
 
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;

@@ -1,13 +1,13 @@
 // Declaração de variáveis
 var questionElement = document.getElementById('question');
 var answerBox = document.getElementById('answers-box');
-var quizzContainer = document.getElementById('quizz-container');
+var quizContainer = document.getElementById('quiz-container');
 var scoreContainer = document.getElementById('score-container');
 var restartBtn = document.getElementById('restart');
 var points = 0;
 var actualQuestion = 0;
 
-// Perguntas
+// questions
 var questions = [
     {
         question: 'Quando o Corinthians foi fundado?',
@@ -37,7 +37,7 @@ var questions = [
         ],
     },
     {
-        question: 'Em que dia foi fundado o Corinthians??',
+        question: 'Em que dia foi fundado o Corinthians?',
         answers: [
             { answer: 'Dia 1º outubro', correct: false },
             { answer: 'Dia 30º de outubro', correct: false },
@@ -55,7 +55,7 @@ var questions = [
         ],
     },
     {
-        question: 'Qual é a capacidade de publico da Neo Quimica Arena?',
+        question: 'Qual é a capacidade de público da Neo Quimica Arena?',
         answers: [
             { answer: '46.300', correct: false },
             { answer: '49.205', correct: true },
@@ -99,7 +99,6 @@ var questions = [
             { answer: 'São Paulo', correct: false },
         ],
     },
-
 ];
 
 // Função para inicializar o quiz
@@ -107,11 +106,11 @@ function init() {
     points = 0;
     actualQuestion = 0;
     scoreContainer.style.display = 'none';
-    quizzContainer.style.display = 'block';
+    quizContainer.style.display = 'block';
     createQuestion();
 }
 
-// Função para criar uma pergunta
+// Função para criar uma questão
 function createQuestion() {
     var currentQuestion = questions[actualQuestion];
     questionElement.textContent = currentQuestion.question;
@@ -158,7 +157,7 @@ function checkAnswer(button) {
 
 // Função para exibir a pontuação final
 function showScore() {
-    quizzContainer.style.display = 'none';
+    quizContainer.style.display = 'none';
     scoreContainer.style.display = 'block';
     document.getElementById('display-score').textContent = 'Você acertou ' + points + ' de ' + questions.length + ' perguntas';
     document.getElementById('correct-answers').textContent = points;
