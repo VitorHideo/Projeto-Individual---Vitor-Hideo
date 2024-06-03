@@ -1,12 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body {
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #c5c5c5;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-dash {
+  display: flex;
+  width: 80%;
+  height: 100%;
+  margin-left: 200px;
 }
 
 .header-left a {
@@ -19,25 +29,56 @@ body {
   top: 0;
   left: 0;
   z-index: 999;
-  height: 100vh;
-  width: 20%;
+  width: 250px;
+  background-color: #343a40;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-right: 3px solid #000000;
-  background-image: linear-gradient(45deg , rgb(0, 0, 0), rgb(37, 37, 37), rgb(55, 55, 55), rgb(75, 75, 75), rgb(100, 100, 100));
-  background-size: 400% 400%;
 }
 
 .header-left h1 {
-  color: #000000;
+  color: #ffffff;
+}
+
+.header-left-nav {
+  flex: 1;
+padding: 20px 0;
+}
+
+.header-left-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header-left-nav ul li {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 15px;
+  width: 100px;
+  text-align: center;
+}
+
+.header-left-nav ul li a{
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  font-size: 1em;
+}
+
+
+.header-left-top {
+  width: 250px;
+  background-color: #23272b;
+  text-align: center;
 }
 
 .hello {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 80px;
 }
 
 .hello h3 {
@@ -50,40 +91,16 @@ body {
   font-weight: 800;
 }
 
-.btn-nav {
-  width: 40%;
-  color: white;
-  background-color: #30262a;
-  border-radius: 5px;
-  text-align: center;
-  padding: 2% 5%;
-}
-
-.btn-nav-white {
-  width: 40%;
-  background-color: white;
-  border: 3px solid #9d9d9d;
-  border-radius: 5px;
-  text-align: center;
-  padding: 2% 5%;
-}
-
-.btn-nav-white h3 {
-  color: #797979;
-  padding: 0;
-  margin: 0;
-}
-
-.btn-nav h3,
 .btn-logout h3 {
   margin: 0;
   padding: 0;
 }
 
 .btn-logout {
-  margin: 0;
+  margin-top: 60px;
   padding: 0;
-  width: 20%;
+  margin-left: 14px;
+  width: 80px;
   background-color: #000000;
   color: white;
   border-radius: 10px;
@@ -93,64 +110,115 @@ body {
   cursor: pointer;
 }
 
-
-.container {
-    max-width: 600px;
-    margin-left: 500px;
-    padding: 20px;
-    border: black solid 1px;
-    border-radius: 20px;
-    margin-top: 250px;
-    background-color: #ffffff;
-    background-size: 400% 400%;
-    color: #000000;
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
+.main-header {
+  background-color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.content {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1;
+  min-width: 100px;
+  text-align: center;
+}
+
+.card h3 {
+  color: #000000;
+  margin: 0 0 10px;
+  font-size: 1.2em;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #343a40;
+}
+
+
+.container {
+  width: 600px;
+  height: 280px;
+  margin-left: 300px;
+  margin-top: 50px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+
 .question {
-    font-size: 18px;
-    margin-bottom: 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  width: 600px;
+  text-align: center;
+  align-items: center;
 }
 
 .answer {
-    display: block;
-    padding: 10px;
-    margin: 5px 0;
-    background: #e0e0e0;
-    border: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
+  display: block;
+  padding: 10px;
+  margin: 5px 0;
+  background: #e0e0e0;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
 }
 
 .answer:hover {
-    background: #ccc;
+  background: #ccc;
 }
 
 .correct {
-    background: #75b2f4 !important;
-    color: white;
+  background: #75b2f4 !important;
+  color: white;
 }
 
 .wrong {
-    background: #ff4736 !important;
-    color: white;
+  background: #ff4736 !important;
+  color: white;
 }
 
 #score-container {
-    display: none;
-    text-align: center;
+  display: none;
+  text-align: center;
 }
 
 #restart {
-    padding: 10px 20px;
-    margin-top: 20px;
-    background: #00c9c8;
-    color: white;
-    border: none;
-    cursor: pointer;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 #restart:hover {
-    background: #008b8b
+  background: #999999
 }
-

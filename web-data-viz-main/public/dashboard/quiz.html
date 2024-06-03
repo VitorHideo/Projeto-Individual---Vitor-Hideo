@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Corinthians | Quiz</title>
 
-    
+
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
     <link rel="stylesheet" href="./../css/quiz.css" />
     <link rel="shortcut icon" href="./../img/logooo.png">
-    
+
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
     <script src="./../js/quiz.js"></script>
@@ -31,55 +31,70 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
-    <body>
+<body>
 
-        <div class="header-left">
-          <h1>SCCP</h1>
-    
-          <div class="hello">
-            <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-          </div>
-    
-          <div class="btn-nav-white">
-            <a href="./dashboard.html">
-              <h3>Home</h3>
-            </a>
-          </div>
-    
-          <div class="btn-nav">
-            <a href="quiz.html">
-            <h3>Quiz</h3>
-            </a>
-          </div>
-    
-          <div class="btn-nav-white">
-            <a href="./mural.html">
-              <h3>Forum</h3>
-            </a>
-          </div>
-    
-          <div class="btn-logout" onclick="limparSessao()">
-            <h3>Sair</h3>
-          </div>
-    
-        </div>
-    
-        <div class="container">
-        <div id="quiz-container">
-          <p id="question" class="question"></p>
-          <div id="answers-box"></div>
-        </div>
-        <div id="score-container">
-          <h2>Parabéns</h2>
-          <p id="display-score"></p>
-          <p>Você acertou <span id="correct-answers"></span> de <span id="questions-qty"></span> perguntas</p>
-          <button id="restart">Refazer quizz!</button>
-        </div>
-      </div>
-      <script src="./../js/quiz.js"></script>
-    </body>
-    
-    </html>
+    <div class="container-dash">
+        <aside class="header-left">
+
+            <div class="header-left-top">
+                <h1>SCCP</h1>
+            </div>
+
+            <nav class="header-left-nav">
+                <div class="hello">
+                    <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                </div>
+
+                <ul>
+                    <li><a href="dashboard.html">Início</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="mural.html">Forum</a></li>
+                    <div class="btn-logout" onclick="limparSessao()">
+                        <h3>Sair</h3>
+                    </div>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>
+                    <center>Bem-vindo à Dashboard</center>
+                </h1>
+            </header>
+            <section class="content">
+                <div class="card">
+                    <h3>Visitas</h3>
+                    <p>1,234</p>
+                </div>
+                <div class="card">
+                    <h3>Usuários</h3>
+                    <p>567</p>
+                </div>
+                <div class="card">
+                    <h3>Média acertos</h3>
+                    <p>7,7</p>
+                </div>
+            </section>
+
+            <div class="container">
+                <div id="quiz-container">
+                    <p id="question" class="question"></p>
+                    <div id="answers-box"></div>
+                </div>
+                <div id="score-container">
+                    <h2>Parabéns</h2>
+                    <p id="display-score"></p>
+                    <p>Você acertou <span id="correct-answers"></span> de <span id="questions-qty"></span> perguntas</p>
+                    <button id="restart">Refazer quizz!</button>
+                </div>
+            </div>
+            <script src="./../js/quiz.js"></script>
+        </main>
+    </div>
+</body>
+
+</html>
 
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
