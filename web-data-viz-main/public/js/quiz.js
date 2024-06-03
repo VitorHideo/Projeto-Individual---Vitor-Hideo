@@ -10,7 +10,7 @@ var actualQuestion = 0;
 // questions
 var questions = [
     {
-        question: 'Quando o Corinthians foi fundado?',
+        question: '1- Quando o Corinthians foi fundado?',
         answers: [
             { answer: '1910', correct: true },
             { answer: '1911', correct: false },
@@ -19,7 +19,7 @@ var questions = [
         ],
     },
     {
-        question: 'Em qual ano o Corinthians conquistou o seu primeiro campeonato Paulista?',
+        question: '2- Em qual ano o Corinthians conquistou o seu primeiro campeonato Paulista?',
         answers: [
             { answer: '1912', correct: false },
             { answer: '1914', correct: true },
@@ -28,7 +28,7 @@ var questions = [
         ],
     },
     {
-        question: 'Qual desses jogadores tem mais gols pelo Corinthians?',
+        question: '3- Qual desses jogadores tem mais gols pelo Corinthians?',
         answers: [
             { answer: 'Sócrates', correct: false },
             { answer: 'Luizinho', correct: true },
@@ -37,7 +37,7 @@ var questions = [
         ],
     },
     {
-        question: 'Em que dia foi fundado o Corinthians?',
+        question: '4- Em que dia foi fundado o Corinthians?',
         answers: [
             { answer: 'Dia 1º outubro', correct: false },
             { answer: 'Dia 30º de outubro', correct: false },
@@ -46,7 +46,7 @@ var questions = [
         ],
     },
     {
-        question: 'Quem fez o gol decisivo na final do campeonato paulista em 2019 contra o São Paulo?',
+        question: '5- Quem fez o gol decisivo na final do campeonato paulista em 2019 contra o São Paulo?',
         answers: [
             { answer: 'Clayson', correct: false },
             { answer: 'Danilo Avelar', correct: false },
@@ -55,7 +55,7 @@ var questions = [
         ],
     },
     {
-        question: 'Qual é a capacidade de público da Neo Quimica Arena?',
+        question: '6- Qual é a capacidade de público da Neo Quimica Arena?',
         answers: [
             { answer: '46.300', correct: false },
             { answer: '49.205', correct: true },
@@ -64,7 +64,7 @@ var questions = [
         ],
     },
     {
-        question: 'Como o atacante Paolo Guerreiro fez o gol na final do Mundial em 2012?',
+        question: '7- Como o atacante Paolo Guerreiro fez o gol na final do Mundial em 2012?',
         answers: [
             { answer: 'Cabeça', correct: true },
             { answer: 'Chute normal', correct: false },
@@ -73,7 +73,7 @@ var questions = [
         ],
     },
     {
-        question: 'No primeiro jogo da final da Libertadores de 2012 que ocorreu na La Bombonera, que jogador do Corinthians tentou defender a bola com a mão?',
+        question: '8- No primeiro jogo da final da Libertadores de 2012 que ocorreu na La Bombonera, que jogador do Corinthians tentou defender a bola com a mão?',
         answers: [
             { answer: 'Fábio Santos', correct: false },
             { answer: 'Ralf', correct: false },
@@ -82,7 +82,7 @@ var questions = [
         ],
     },
     {
-        question: 'Quantos pênaltis o goleiro Cassio defendeu pelo Corinthians?',
+        question: '9- Quantos pênaltis o goleiro Cassio defendeu pelo Corinthians?',
         answers: [
             { answer: '30', correct: false },
             { answer: '27', correct: false },
@@ -91,7 +91,7 @@ var questions = [
         ],
     },
     {
-        question: 'Contra qual time o Corinthians ganhou o campeonato Paulista de 1977?',
+        question: '10- Contra qual time o Corinthians ganhou o campeonato Paulista de 1977?',
         answers: [
             { answer: 'Palmeiras', correct: false },
             { answer: 'Portuguesa', correct: false },

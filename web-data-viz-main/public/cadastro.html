@@ -19,7 +19,6 @@
       <div class="logo"> <img src="img/sccp2.jpg" alt=""></div>
       <ul class="navbar">
         <li><a href="index.html">Home</a></li>
-        <li><a href="quiz.html">Quiz</a></li>
         <li><a href="titulos.html">Titulos</a></li>
         <li>|</li>
         <li><a href="login.html">Login</a></li>
@@ -41,10 +40,10 @@
 
         <div class="formulario">
 
-          <span>Empresa:</span>
+              <!--<span>Empresa:</span>
           <select name="empresas" id="listaEmpresas">
             <option selected>Selecione uma empresa</option>
-          </select>
+          </select> -->
 
           <label>Nome</label>
           <div class="input">
@@ -84,7 +83,7 @@
 
   <div class="footer">
     <div class="container">
-      <p>Feito pelos alunos 1CCO &hearts; SPTECH &copy;</p>
+      <p>Feito por Vitor Hideo 1CCO - SPTECH &copy;</p>
     </div>
   </div>
 
@@ -104,13 +103,13 @@
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var empresaVar = listaEmpresas.value
+    //var empresaVar = listaEmpresas.value
     if (
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      empresaVar == ""
+      confirmacaoSenhaVar == "" //||
+      //empresaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -134,7 +133,7 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        empresaServer: empresaVar
+        //empresaServer: empresaVar
       }),
     })
       .then(function (resposta) {
@@ -148,7 +147,7 @@
 
           setTimeout(() => {
             window.location = "login.html";
-          }, "2000");
+          }, "1500");
 
           limparFormulario();
           finalizarAguardar();
@@ -164,7 +163,7 @@
     return false;
   }
 
-  function listar() {
+  /*function listar() {
     fetch("/empresas/listar", {
       method: "GET",
     })
@@ -178,7 +177,7 @@
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
       });
-  }
+  }*/
 
   function sumirMensagem() {
     cardErro.style.display = "none";
