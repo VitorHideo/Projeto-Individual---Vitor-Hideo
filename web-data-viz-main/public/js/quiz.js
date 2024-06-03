@@ -136,6 +136,7 @@ function checkAnswer(button) {
     for (var i = 0; i < buttons.length; i++) {
         if (buttons[i].getAttribute('data-correct') === 'true') {
             buttons[i].classList.add('correct');
+            
         } else {
             buttons[i].classList.add('wrong');
         }
@@ -159,7 +160,7 @@ function checkAnswer(button) {
 function showScore() {
     quizContainer.style.display = 'none';
     scoreContainer.style.display = 'block';
-    document.getElementById('display-score').textContent = 'Você acertou ' + points + ' de ' + questions.length + ' perguntas';
+    document.getElementById('display-score').textContent = `Você acertou ${points} de ${questions.length} perguntas`;
     document.getElementById('correct-answers').textContent = points;
     document.getElementById('questions-qty').textContent = questions.length;
 }
