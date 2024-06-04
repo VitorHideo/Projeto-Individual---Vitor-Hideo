@@ -153,7 +153,7 @@ function checkAnswer(button) {
         } else {
             createQuestion();
         }
-    }, 1000);
+    }, 500);
 }
 
 // Função para exibir a pontuação final

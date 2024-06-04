@@ -30,7 +30,7 @@ body {
   left: 0;
   z-index: 999;
   width: 250px;
-  background-color: #343a40;
+  background-color: #474747;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -56,8 +56,8 @@ padding: 20px 0;
 .header-left-nav ul li {
   padding: 10px 20px;
   margin-bottom: 20px;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   width: 100px;
   text-align: center;
 }
@@ -67,13 +67,17 @@ padding: 20px 0;
   text-decoration: none;
   display: block;
   font-size: 1em;
+  width: 100px;
 }
 
-
-.header-left-top {
+.logo {
   width: 250px;
-  background-color: #23272b;
+  background-color: #000000;
   text-align: center;
+}
+
+.logo img {
+  width: 150px;
 }
 
 .hello {
@@ -98,7 +102,6 @@ padding: 20px 0;
 
 .btn-logout {
   margin-top: 60px;
-  padding: 0;
   margin-left: 14px;
   width: 80px;
   background-color: #000000;
@@ -110,16 +113,21 @@ padding: 20px 0;
   cursor: pointer;
 }
 
+.btn-logout:hover {
+  background-color: #5d5d5d;
+}
+
 .main-content {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .main-header {
   background-color: #fff;
   padding: 20px;
   border-bottom: 1px solid #ddd;
+  width: 100%;
 }
 
 .main-header h1 {
@@ -128,21 +136,20 @@ padding: 20px 0;
 }
 
 .content {
-  padding: 20px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  width: 100%;
+  gap: 35px;
+  justify-content: center;
+
 }
 
 .card {
   background-color: #fff;
-  border: 1px solid #ddd;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 1px solid #d4d4d4;
   border-radius: 8px;
-  padding: 20px;
-  flex: 1;
-  min-width: 100px;
+  width: 300px;
   text-align: center;
+  margin-top: 30px;
 }
 
 .card h3 {
@@ -158,11 +165,18 @@ padding: 20px 0;
   color: #343a40;
 }
 
+#total_usuario {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #343a40;
+}
+
 
 .container {
   width: 600px;
   height: 280px;
-  margin-left: 300px;
+  margin-left: 380px;
   margin-top: 50px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -184,15 +198,16 @@ padding: 20px 0;
   display: block;
   padding: 10px;
   margin: 5px 0;
-  background: #e0e0e0;
-  border: none;
+  background: #ffffff;
+  border: 1px #bcbcbc solid;
+  border-radius: 20px;
   width: 100%;
   text-align: left;
   cursor: pointer;
 }
 
 .answer:hover {
-  background: #ccc;
+  background: #c3c3c3;
 }
 
 .correct {
@@ -207,18 +222,22 @@ padding: 20px 0;
 
 #score-container {
   display: none;
+  align-items: center;
   text-align: center;
+  margin-left: 160px;
 }
 
 #restart {
+  font-family: "Poppins", sans-serif;
   padding: 10px 20px;
   margin-top: 20px;
   background: #000000;
   color: white;
-  border: none;
+  border-radius: 15px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 #restart:hover {
-  background: #999999
+  background: #656565
 }
