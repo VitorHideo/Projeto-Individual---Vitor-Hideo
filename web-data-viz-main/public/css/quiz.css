@@ -30,7 +30,7 @@ body {
   left: 0;
   z-index: 999;
   width: 250px;
-  background-color: #474747;
+  background-color: #000000;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@ body {
 
 .header-left-nav {
   flex: 1;
-padding: 20px 0;
+  padding: 20px 0;
 }
 
 .header-left-nav ul {
@@ -56,13 +56,17 @@ padding: 20px 0;
 .header-left-nav ul li {
   padding: 10px 20px;
   margin-bottom: 20px;
-  border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 8px;
+  border: 1px #fff solid;
   width: 100px;
   text-align: center;
 }
 
-.header-left-nav ul li a{
+.header-left-nav ul li:hover {
+  background-color: #656565;
+}
+
+.header-left-nav ul li a {
   color: #fff;
   text-decoration: none;
   display: block;
@@ -101,10 +105,10 @@ padding: 20px 0;
 }
 
 .btn-logout {
-  margin-top: 60px;
+  margin-top: 80px;
   margin-left: 14px;
   width: 80px;
-  background-color: #000000;
+  background-color: #ff0000;
   color: white;
   border-radius: 10px;
   text-align: center;
@@ -114,7 +118,7 @@ padding: 20px 0;
 }
 
 .btn-logout:hover {
-  background-color: #5d5d5d;
+  background-color: #d28181;
 }
 
 .main-content {
@@ -132,6 +136,7 @@ padding: 20px 0;
 
 .main-header h1 {
   margin: 0;
+  margin-right: 50px;
   font-size: 1.5em;
 }
 
@@ -140,7 +145,17 @@ padding: 20px 0;
   width: 100%;
   gap: 35px;
   justify-content: center;
+}
 
+.content-quiz {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.content-quiz h2 {
+  color: #343a40;
 }
 
 .card {
@@ -172,6 +187,19 @@ padding: 20px 0;
   color: #343a40;
 }
 
+.grafico-quiz {
+  background-color: #fff;
+  position: relative;
+  width: 600px;
+  display: flex;
+  margin-left: 370px;
+  margin-top: 50px;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid #d4d4d4;
+}
 
 .container {
   width: 600px;
@@ -224,7 +252,9 @@ padding: 20px 0;
   display: none;
   align-items: center;
   text-align: center;
-  margin-left: 160px;
+  margin-left: 163px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 #restart {

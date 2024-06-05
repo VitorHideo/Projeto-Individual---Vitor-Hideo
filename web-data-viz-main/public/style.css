@@ -205,6 +205,11 @@ body {
     color: white;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.formulario button:hover {
+    background-color: rgb(74, 74, 74);
 }
 
 .formulario {

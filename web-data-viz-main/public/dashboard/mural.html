@@ -33,8 +33,8 @@
                 </div>
 
                 <ul>
-                    <li><a href="dashboard.html">Início</a></li>
                     <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="grafico.html">Graficos</a></li>
                     <li><a href="mural.html">Forum</a></li>
                     <div class="btn-logout" onclick="limparSessao()">
                         <h3>Sair</h3>
@@ -52,20 +52,20 @@
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>
-                                Tema:
+                                Assunto:
                                 <br>
                                 <input name="titulo" id="titulo" maxlength="100" type="text">
                             </label>
                             <br>
                             <br>
                             <label>
-                                Descrição (máximo de 250 caracteres):
+                                Texto:
                                 <br>
                                 <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
                             </label>
                             <br>
                             <br>
-                            <button>Postar</button>
+                            <button>Publicar</button>
                         </form>
                     </div>
                     <h1>Mural de Avisos</h1>
@@ -160,7 +160,7 @@
                 if (resposta.status == 204) {
                     var feed = document.getElementById("feed_container");
                     var mensagem = document.createElement("span");
-                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    mensagem.innerHTML = ""
                     feed.appendChild(mensagem);
                     throw "Nenhum resultado encontrado!!";
                 }
@@ -175,44 +175,44 @@
 
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
-                        var spanID = document.createElement("span");
+                        //var spanID = document.createElement("span");
                         var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
                         var divDescricao = document.createElement("div");
                         var divButtons = document.createElement("div");
-                        var btnEditar = document.createElement("button");
+                        //var btnEditar = document.createElement("button");
                         var btnDeletar = document.createElement("button");
 
 
-                        spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
+                        //spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
                         spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-                        btnEditar.innerHTML = "Editar";
+                        //btnEditar.innerHTML = "Editar";
                         btnDeletar.innerHTML = "Deletar";
 
                         divPublicacao.className = "publicacao";
-                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                        //spanTitulo.id = "inputNumero" + publicacao.idAviso;
                         spanNome.className = "publicacao-nome";
                         spanTitulo.className = "publicacao-titulo";
                         divDescricao.className = "publicacao-descricao";
 
                         divButtons.className = "div-buttons"
 
-                        btnEditar.className = "publicacao-btn-editar"
-                        btnEditar.id = "btnEditar" + publicacao.idAviso;
-                        btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+                        //btnEditar.className = "publicacao-btn-editar"
+                        //btnEditar.id = "btnEditar" + publicacao.idAviso;
+                        //btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
 
                         btnDeletar.className = "publicacao-btn-editar"
                         btnDeletar.id = "btnDeletar" + publicacao.idAviso;
                         btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
 
-                        divPublicacao.appendChild(spanID);
+                        //divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanTitulo);
                         divPublicacao.appendChild(divDescricao);
                         divPublicacao.appendChild(divButtons);
-                        divButtons.appendChild(btnEditar);
+                        //divButtons.appendChild(btnEditar);
                         divButtons.appendChild(btnDeletar);
                         feed.appendChild(divPublicacao);
                     }
