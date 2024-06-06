@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-dash2 {
+  display: flex;
+  width: 80%;
+  height: 100%;
+  margin-left: 200px;
+}
+
+.header-left2 a {
+  text-decoration: none;
+  color: white;
+}
+
+.header-left2 {
+    position: fixed;
+    height: 803px;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 250px;
+    background-color: #131313;
+    color: #fff;
+    border-right: rgb(255, 0, 0) solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.header-left2 h1 {
+  color: #ffffff;
+}
+
+.header-left-nav2 {
+  flex: 1;
+  padding: 20px 0;
+  margin-top: 20px;
+
+}
+
+.header-left-nav2 ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 98px;
+}
+
+.header-left-nav2 ul li {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px #fff solid;
+    width: 100px;
+    text-align: center;
+}
+
+.header-left-nav2 ul li:hover {
+  background-color: #656565;
+}
+
+.header-left-nav2 ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  font-size: 1em;
+  width: 100px;
+}
+
+.logo2 {
+  width: 250px;
+  text-align: center;
+}
+
+.logo2 img {
+  width: 150px;
+}
+
+.hello2 {
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+.hello2 h3 {
+  color: #ffffff;
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-left: 25px;
+}
+
+.hello2 h3 span {
+  font-weight: 800;
+}
+
+.btn-logout2 h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-logout2 {
+  margin-top: 80px;
+  margin-left: 14px;
+  width: 80px;
+  background-color: #ff0000;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px 15px;
+  margin-bottom: 100px;
+  cursor: pointer;
+}
+
+.btn-logout2:hover {
+  background-color: #d28181;
+}
+
+.main-content2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main-header2 {
+  background-color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+}
+
+.main-header2 h1 {
+  margin: 0;
+  margin-right: 50px;
+  font-size: 1.5em;
+}
+
+.content2 {
+  display: flex;
+  width: 100%;
+  gap: 35px;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-quiz2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.content-quiz2 h2 {
+  color: #343a40;
+}
+
+.card2 {
+  background-color: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.card2 h3 {
+  color: #000000;
+  margin: 0 0 10px;
+  font-size: 1.2em;
+}
+
+.card2 p {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #343a40;
+}
+
+.container2 {
+    width: 600px;
+    height: 380px;
+    margin-left: 360px;
+    margin-top: 50px;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.logo-quiz2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-quiz2 img {
+  width: 100px;
+}
+
+.question2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  width: 600px;
+  text-align: center;
+  align-items: center;
+}
+
+.answer2 {
+  display: block;
+  padding: 10px;
+  margin: 5px 0;
+  background: #ffffff;
+  border: 1px #bcbcbc solid;
+  border-radius: 20px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.answer2:hover {
+  background: #c3c3c3;
+}
+
+.correct2 {
+  background: #75b2f4 !important;
+  color: white;
+}
+
+.wrong2 {
+  background: #ff4736 !important;
+  color: white;
+}
+
+#score-container2 {
+  display: none;
+  align-items: center;
+  text-align: center;
+  margin-left: 163px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#restart2 {
+  font-family: "Poppins", sans-serif;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background: #000000;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#restart2:hover {
+  background: #656565;
+}

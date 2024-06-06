@@ -26,12 +26,14 @@ body {
 
 .header-left {
   position: fixed;
+  height: 803px;
   top: 0;
   left: 0;
   z-index: 999;
   width: 250px;
-  background-color: #000000;
+  background-color: #131313;
   color: #fff;
+  border-right: 4px rgb(255, 0, 0) solid;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -76,7 +78,6 @@ body {
 
 .logo {
   width: 250px;
-  background-color: #000000;
   text-align: center;
 }
 
@@ -145,11 +146,13 @@ body {
   width: 100%;
   gap: 35px;
   justify-content: center;
+  align-items: center;
 }
 
 .content-quiz {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   margin-top: 50px;
 }
@@ -203,16 +206,40 @@ body {
 
 .container {
   width: 600px;
-  height: 280px;
-  margin-left: 380px;
+  height: 380px;
+  margin-left: 360px;
   margin-top: 50px;
-  padding: 20px;
+  padding: 30px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 20px;
   background-color: #ffffff;
   color: #000000;
 }
 
+#quiz-container {
+  height: 350px;
+}
+
+
+.logo-quiz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-quiz img {
+  width: 300px;
+}
+
+.logo-quiz2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-quiz2 img {
+  width: 300px;
+}
 
 .question {
   font-size: 18px;
@@ -271,3 +298,163 @@ body {
 #restart:hover {
   background: #656565
 }
+
+.texto-direc-quiz2 {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.texto-direc-quiz2 p {
+  font-size: 20px;
+}
+
+.btn-direc-quiz2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px;
+  border-color: black;
+
+}
+
+#btn-quiz2 {
+  font-family: "Poppins", sans-serif;
+  padding: 10px 20px;
+  background: #000000;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn-quiz2:hover {
+  background-color: #656565;
+}
+
+.container-dash a {
+  text-decoration: none;
+}
+
+.titulo-informações {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.corpo-link {
+  width: 100%;
+  height: 500px;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.card-link {
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  transition: all .5s;
+}
+
+.card-link:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+.card-link .img-link {
+  width: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  background-image: url('./../img/logo_digital.png');
+  background-size: cover;
+  background-position: center;
+  transition: all .5s;
+  z-index: 2;
+  position: relative;
+}
+
+.card-link .img-link span {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 100;
+  font-style: italic;
+  transition: all .5s;
+}
+
+.card-link:hover .img-link {
+  width: 430px;
+}
+
+.card-link:hover .img-link span {
+  font-size: 28px;
+}
+
+.card-link .content-link {
+  padding: 0px 20px;
+  height: 0;
+  transition: all .5s;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  transform: translateY(30px);
+}
+
+.card-link .content-link span {
+  color: white;
+}
+
+.card-link:hover .content-link {
+  height: 260px;
+  padding: 20px;
+  transform: translateY(0);
+}
+
+.card-link .content-link p {
+  margin: 0;
+  color: white;
+}
+
+.card-link .content-link .title-link {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card-link .content-link .desc {
+  font-size: 14px;
+  font-weight: 100;
+  margin-top: 8px;
+}
+
+.card-link .arrow-link {
+  padding: 15px;
+  transform: rotate(-180deg);
+  transition: all .5s;
+}
+
+.card-link:hover .arrow-link {
+  transform: rotate(0);
+}
+
+.card-link .arrow-link span {
+  font-size: 24px;
+}
+

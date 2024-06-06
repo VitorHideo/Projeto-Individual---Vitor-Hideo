@@ -2,20 +2,19 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCCP | Quiz</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCCP | Quiz</title>
 
 
-    <link rel="stylesheet" href="./../css/dashboards.css">
-    <link rel="stylesheet" href="./../css/estilo.css" />
-    <link rel="stylesheet" href="./../css/quiz.css" />
-    <link rel="shortcut icon" href="./../img/logooo.png">
+  <link rel="stylesheet" href="./../css/dashboards.css">
+  <link rel="stylesheet" href="./../css/estilo.css" />
+  <link rel="stylesheet" href="./../css/quiz.css" />
+  <link rel="shortcut icon" href="./../img/logooo.png">
 
-    <script src="../js/quiz.js"></script>
-    <script src="../js/sessao.js"></script>
-    <script src="../js/alerta.js"></script>
+  <script src="../js/sessao.js"></script>
+  <script src="../js/alerta.js"></script>
 
 </head>
 
@@ -25,7 +24,7 @@
     <aside class="header-left">
 
       <div class="logo">
-        <img src="./../img/sccp2.jpg" alt="">
+        <img src="./../img/logooo.png" alt="">
       </div>
 
       <nav class="header-left-nav">
@@ -47,7 +46,7 @@
     <main class="main-content">
       <header class="main-header">
         <h1>
-          <center>Bem-vindo à Dashboard</center>
+          <center>Seja Bem Vindo Torcedor</center>
         </h1>
       </header>
 
@@ -57,6 +56,9 @@
 
       <div class="container">
         <div id="quiz-container">
+          <div class="logo-quiz">
+            <img src="./../img/quiz3v2.jpg" alt="">
+          </div>
           <p id="question" class="question"></p>
           <div id="answers-box"></div>
         </div>
@@ -67,7 +69,80 @@
           <button id="restart">Refazer quizz!</button>
         </div>
       </div>
-      <script src="./../js/quiz.js"></script>
+
+      <div class="texto-direc-quiz2">
+        <p>Caso você não for torcedor do corinthians, clique no botão para realizar um quiz sobre o futebol brasileiro
+        </p>
+      </div>
+
+      <div class="btn-direc-quiz2">
+        <a href="./quiz2.html">
+          <button id="btn-quiz2">Quiz - Geral</button>
+        </a>
+      </div>
+
+      <div class="titulo-informações">
+         <h1>Informações sobre o Corinthians</h1>
+      </div>
+
+      <div class="corpo-link">
+
+        <div class="card-link">
+          <div class="img-link">
+          </div>
+
+          <div class="content-link">
+            <a href="https://www.fieltorcedor.com.br/">
+            <span class="title-link">Fiel Torcedor</span>
+            <p class="desc">Confira todos os planos de fiel torcedor, conheça todos os beneficios e vantagens ao realizar a assinatura. <br>
+              Garanta seus jogos com um preço mais baixo. </p>
+            </a>
+          </div>
+
+          <div class="arrow-link">
+            <span>&#8673;</span>
+          </div>
+        </div>
+
+        <div class="card-link">
+          <div class="img-link" style="background-image: url(./../img/loja.png);">
+          </div>
+
+          <div class="content-link">
+            <a href="https://www.shoptimao.com.br/">
+            <span class="title-link">Loja Oficial - Corinthians</span>
+            <p class="desc">Confira a loja do oficial do corinthians para garantir os melhores produtos do nosso time do coração. <br>
+              Camiseta, shots, moletom, blusas e muito mais, e com extrema qualidade.
+            </p>
+          </a>
+          </div>
+
+          <div class="arrow-link">
+            <span>&#8673;</span>
+          </div>
+        </div>
+
+        <div class="card-link">
+          <div class="img-link" style="background-image: url(./../img/universo\ sccp.png);">
+          </div>
+
+          <div class="content-link">
+            <a href="https://www.corinthians.com.br/app">
+            <span class="title-link">Universo SCCP</span>
+            <p class="desc">O Universo SCCP é uma plataforma criada pelo Corinthians com o objetivo unificar toda a experiência digital alvinegra. <br>
+              Você pode baixar no seu celular, esta disponivel no App Store e Google Play.
+            </p>
+          </a>
+          </div>
+
+          <div class="arrow-link">
+            <span>&#8673;</span>
+          </div>
+        </div>
+
+      </div>
+
+
     </main>
   </div>
 
@@ -76,10 +151,10 @@
 </html>
 
 <script>
-
   const idUsuario = sessionStorage.ID_USUARIO;
   total_usuario.innerHTML = `${idUsuario}`
-
 </script>
+
+<script src="./../js/quiz.js"></script>
 
 </html>
