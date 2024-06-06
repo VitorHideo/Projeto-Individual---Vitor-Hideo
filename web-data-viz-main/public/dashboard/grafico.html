@@ -14,20 +14,14 @@
     <link rel="shortcut icon" href="./../img/logooo.png">
 
     <script src="../js/sessao.js"></script>
-    <script src="./../js/alerta.js"></script>
-    <script src="./../js/quiz.js"></script>
+    <script src="../js/quiz.js"></script>
 
-
-    <!-- scripts do Chart.js - 2022-1 -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!--FONT AWESOME-->
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 </head>
 
-<!-- <body onload=" atualizarFeed()"> -->
-
-<body>
+<body onload="checkAnswer()">
 
     <div class="container-dash">
         <aside class="header-left">
@@ -61,12 +55,11 @@
             <section class="content">
                 <div class="card">
                     <h3>Visitas</h3>
-                    <p>1,234</p>
+                    <p>36</p>
                 </div>
                 <div class="card">
                     <h3>Usuários</h3>
                     <div id="total_usuario">
-                        <p>567</p>
                     </div>
                 </div>
                 <div class="card">
@@ -89,18 +82,30 @@
 
 <script>
 
+    const idUsuario = sessionStorage.ID_USUARIO;    
+    total_usuario.innerHTML = `${idUsuario}`
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
     const ctx = document.getElementById('myChart');
 
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+            labels: ['1'],
             datasets: [{
-                label: 'Media de acertos de cada questão do quiz',
-                data: [80, 90, 90, 70, 90, 80, 98, 100, 80, 70, 90, 60],
-                borderWidth: 1,
-                Color: 'gray',
-                backgroundColor: 'black',
+                label: 'Acertos',
+                data: [7],
+                backgroundColor: '#75b2f4',
+                borderColor: 'white',
+                font: {
+                    family: "Poppins, sans-serif",
+                    size: 20
+                }
+            }, {
+                label: 'Erros',
+                data: [3],
+                backgroundColor: '#ff4736',
                 borderColor: 'white',
                 font: {
                     family: "Poppins, sans-serif",
@@ -116,11 +121,6 @@
             }
         }
     });
-
-    const idUsuario = sessionStorage.ID_USUARIO;
-    total_usuario.innerHTML = `${idUsuario}`
-
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
 

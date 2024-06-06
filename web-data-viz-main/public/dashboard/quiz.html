@@ -14,11 +14,10 @@
   <link rel="shortcut icon" href="./../img/logooo.png">
 
   <script src="../js/sessao.js"></script>
-  <script src="../js/alerta.js"></script>
 
 </head>
 
-<body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
+<body onload="validarSessao()">
 
   <div class="container-dash">
     <aside class="header-left">
@@ -66,13 +65,12 @@
           <h2>Parabéns</h2>
           <p id="display-score"></p>
           <p>Você acertou <span id="correct-answers"></span> de <span id="questions-qty"></span> perguntas</p>
-          <button id="restart">Refazer quizz!</button>
+          <button id="restart">Tentar Novamente!</button>
         </div>
       </div>
 
       <div class="texto-direc-quiz2">
-        <p>Caso você não for torcedor do corinthians, clique no botão para realizar um quiz sobre o futebol brasileiro
-        </p>
+        <p>Caso se preferir, também temos um quiz sobre o futebol em geral</p>
       </div>
 
       <div class="btn-direc-quiz2">
@@ -92,15 +90,14 @@
           </div>
 
           <div class="content-link">
-            <a href="https://www.fieltorcedor.com.br/">
+            <a href="https://www.fieltorcedor.com.br/"></a>
             <span class="title-link">Fiel Torcedor</span>
             <p class="desc">Confira todos os planos de fiel torcedor, conheça todos os beneficios e vantagens ao realizar a assinatura. <br>
               Garanta seus jogos com um preço mais baixo. </p>
             </a>
           </div>
 
-          <div class="arrow-link">
-            <span>&#8673;</span>
+          <div class="bottom-card">
           </div>
         </div>
 
@@ -117,8 +114,7 @@
           </a>
           </div>
 
-          <div class="arrow-link">
-            <span>&#8673;</span>
+          <div class="bottom-card">
           </div>
         </div>
 
@@ -135,8 +131,7 @@
           </a>
           </div>
 
-          <div class="arrow-link">
-            <span>&#8673;</span>
+          <div class="bottom-card">
           </div>
         </div>
 
@@ -149,11 +144,6 @@
 </body>
 
 </html>
-
-<script>
-  const idUsuario = sessionStorage.ID_USUARIO;
-  total_usuario.innerHTML = `${idUsuario}`
-</script>
 
 <script src="./../js/quiz.js"></script>
 

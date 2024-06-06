@@ -45,7 +45,7 @@ body {
 .banner {
     height: 900px;
     color: #fff;
-    background-image: url('img/teste.jpg');
+    background-image: url('../img/teste.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     border-bottom: 1px #fff solid;
@@ -132,7 +132,7 @@ body {
 
 .footer {
     height: 70px;
-    background-color: gray;
+    background-color: rgb(179, 179, 179);
 }
 
 .footer .container {
@@ -315,7 +315,7 @@ body {
   
   .alerta_erro{
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
   
   .card_erro {
@@ -324,7 +324,7 @@ body {
     color: rgb(255, 255, 255);
     width: 230px;
     position: fixed;
-    border-radius: 4px;
+    border-radius: 15px;
     border: #ffffff 3px solid;
     padding: 10px;
     margin-right: 10%;
@@ -332,7 +332,7 @@ body {
   
   .card_erro #mensagem_erro{
     font-weight: 500;
-    font-size: 20px;
+    font-size: 17px;
   }
 
   .loading-div {

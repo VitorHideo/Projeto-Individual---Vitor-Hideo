@@ -231,16 +231,6 @@ body {
   width: 300px;
 }
 
-.logo-quiz2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo-quiz2 img {
-  width: 300px;
-}
-
 .question {
   font-size: 18px;
   margin-bottom: 20px;
@@ -251,18 +241,19 @@ body {
 
 .answer {
   display: block;
-  padding: 10px;
+  padding: 12px;
   margin: 5px 0;
   background: #ffffff;
-  border: 1px #bcbcbc solid;
-  border-radius: 20px;
+  border: 1px #000000 solid;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   width: 100%;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
 }
 
 .answer:hover {
-  background: #c3c3c3;
+  background: #b4b4b4;
 }
 
 .correct {
@@ -370,7 +361,7 @@ body {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(50, 50, 50);
   transition: all .5s;
 }
 
@@ -444,17 +435,13 @@ body {
   margin-top: 8px;
 }
 
-.card-link .arrow-link {
-  padding: 15px;
-  transform: rotate(-180deg);
-  transition: all .5s;
+
+.card-link .bottom-card {
+  padding: 30px;
 }
 
-.card-link:hover .arrow-link {
+.card-link:hover .bottom-card {
   transform: rotate(0);
 }
 
-.card-link .arrow-link span {
-  font-size: 24px;
-}
 

@@ -24,3 +24,11 @@ CREATE TABLE aviso (
 	fk_usuario INT,
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
+
+CREATE TABLE pontuacao (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	acertos INT,
+	erros INT,
+	fk_usuario_quiz INT,
+	FOREIGN KEY (fk_usuario_quiz) REFERENCES usuario(id)
+);
