@@ -43,6 +43,9 @@
         </aside>
 
         <div class="dash-right">
+            <div class="titulo-forum">
+                <h1>Forum do Corinthians</h1>
+            </div>
             <div class="avisos">
                 <div id="alerta">
                 </div>
@@ -180,7 +183,7 @@
                         var divDescricao = document.createElement("div");
                         var divButtons = document.createElement("div");
                         //var btnEditar = document.createElement("button");
-                        var btnDeletar = document.createElement("button");
+                        //var btnDeletar = document.createElement("button");
 
 
                         //spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
@@ -188,7 +191,7 @@
                         spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
                         divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
                         //btnEditar.innerHTML = "Editar";
-                        btnDeletar.innerHTML = "Deletar";
+                        //btnDeletar.innerHTML = "Deletar";
 
                         divPublicacao.className = "publicacao";
                         //spanTitulo.id = "inputNumero" + publicacao.idAviso;
@@ -202,9 +205,9 @@
                         //btnEditar.id = "btnEditar" + publicacao.idAviso;
                         //btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
 
-                        btnDeletar.className = "publicacao-btn-editar"
-                        btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+                        //btnDeletar.className = "publicacao-btn-editar"
+                        //btnDeletar.id = "btnDeletar" + publicacao.idAviso;
+                        //btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
 
                         //divPublicacao.appendChild(spanID);
                         divPublicacao.appendChild(spanNome);
@@ -212,7 +215,7 @@
                         divPublicacao.appendChild(divDescricao);
                         divPublicacao.appendChild(divButtons);
                         //divButtons.appendChild(btnEditar);
-                        divButtons.appendChild(btnDeletar);
+                        //divButtons.appendChild(btnDeletar);
                         feed.appendChild(divPublicacao);
                     }
 
