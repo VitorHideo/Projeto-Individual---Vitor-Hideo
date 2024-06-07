@@ -25,7 +25,7 @@ CREATE TABLE aviso (
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 
-CREATE TABLE pontuacao (
+CREATE TABLE quiz (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	acertos INT,
 	erros INT,
