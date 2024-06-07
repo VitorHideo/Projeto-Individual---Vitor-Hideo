@@ -27,22 +27,33 @@ body {
 }
 
 .dash-right {
-  width: 49%;
-  margin-left: 230px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;;
+  margin-left: 15%;
   height: 100%;
 }
 
 .dash-right .avisos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: auto;
-  width: 800px;
+  width: 900px;
   color: black;
   font-family: "Poppins", sans-serif;
   background-color: #ffffff;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   border-radius: 20px;
+}
+
+.container-forum {
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
+
 
 .container-forum .div-form {
   display: flex;

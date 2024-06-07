@@ -21,7 +21,7 @@
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 </head>
 
-<body onload="checkAnswer()">
+<body onload="incrementVisitCounter()">
 
     <div class="container-dash">
         <aside class="header-left">
@@ -55,7 +55,7 @@
             <section class="content">
                 <div class="card">
                     <h3>Visitas</h3>
-                    <p>36</p>
+                    <p id="visit-count">0</p>
                 </div>
                 <div class="card">
                     <h3>Usuários</h3>
@@ -68,9 +68,11 @@
                 </div>
             </section>
 
+        <div class="container-grafico">
             <div class="grafico-quiz">
                 <canvas id="myChart"></canvas>
             </div>
+        </div>
 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -82,45 +84,58 @@
 
 <script>
 
-    const idUsuario = sessionStorage.ID_USUARIO;    
-    total_usuario.innerHTML = `${idUsuario}`
+        const idUsuario = sessionStorage.ID_USUARIO;
+        total_usuario.innerHTML = `${idUsuario}`;
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+        function incrementVisitCounter() {
+            let visits = localStorage.getItem('visitCount');
+            if (!visits) {
+                visits = 0;
+            }
+            visits++;
+            localStorage.setItem('visitCount', visits);
+            document.getElementById('visit-count').innerText = visits;
+        }
 
-    const ctx = document.getElementById('myChart');
+        // Recuperar os resultados do quiz
+        const quizAcertos = sessionStorage.getItem('quiz_acertos') || 0;
+        const quizErros = sessionStorage.getItem('quiz_erros') || 0;
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['1'],
-            datasets: [{
-                label: 'Acertos',
-                data: [7],
-                backgroundColor: '#75b2f4',
-                borderColor: 'white',
-                font: {
-                    family: "Poppins, sans-serif",
-                    size: 20
-                }
-            }, {
-                label: 'Erros',
-                data: [3],
-                backgroundColor: '#ff4736',
-                borderColor: 'white',
-                font: {
-                    family: "Poppins, sans-serif",
-                    size: 20
-                }
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Quiz Resultados'],
+                datasets: [{
+                    label: 'Acertos',
+                    data: [quizAcertos],
+                    backgroundColor: '#75b2f4',
+                    borderColor: 'white',
+                    font: {
+                        family: "Poppins, sans-serif",
+                        size: 20
+                    }
+                }, {
+                    label: 'Erros',
+                    data: [quizErros],
+                    backgroundColor: '#ff4736',
+                    borderColor: 'white',
+                    font: {
+                        family: "Poppins, sans-serif",
+                        size: 20
+                    }
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
+        });
 
     let proximaAtualizacao;
 

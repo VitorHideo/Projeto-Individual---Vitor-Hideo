@@ -157,14 +157,17 @@ function checkAnswer(button) {
 }
 
 // Função para exibir a pontuação final
+// Função para exibir a pontuação final
 function showScore() {
     quizContainer.style.display = 'none';
     scoreContainer.style.display = 'block';
-    //document.getElementById('display-score').textContent = `Você acertou ${points} de ${questions.length} perguntas`;
     document.getElementById('correct-answers').textContent = points;
     document.getElementById('questions-qty').textContent = questions.length;
-}
 
+    // Armazenar resultados no sessionStorage
+    sessionStorage.setItem('quiz_acertos', points);
+    sessionStorage.setItem('quiz_erros', questions.length - points);
+}
 // Event listener para reiniciar o quiz
 restartBtn.onclick = function () {
     init();
@@ -172,3 +175,4 @@ restartBtn.onclick = function () {
 
 // Inicialização do quiz
 init();
+
