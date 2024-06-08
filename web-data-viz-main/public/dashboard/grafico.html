@@ -15,6 +15,7 @@
 
     <script src="../js/sessao.js"></script>
     <script src="../js/quiz.js"></script>
+    <script src="../js/quiz2.js"></script>
 
 
     <!--FONT AWESOME-->
@@ -68,9 +69,21 @@
                 </div>
             </section>
 
-        <div class="container-grafico">
+        <div class="info-grafic">
+        <h2>Resultado do Quiz sobre o Corinthians</h2>
+        </div>  
+        <div class="container-grafico-sccp">
             <div class="grafico-quiz">
                 <canvas id="myChart"></canvas>
+            </div>
+        </div>
+
+        <div class="info-grafic2">
+            <h2>Resultado do Quiz sobre o futebol em geral</h2>
+            </div>  
+        <div class="container-grafico-geral">
+            <div class="grafico-geral">
+                <canvas id="myChart2"></canvas>
             </div>
         </div>
 
@@ -99,18 +112,18 @@
         }
 
         // Recuperar os resultados do quiz
-        const quizAcertos = sessionStorage.getItem('quiz_acertos') || 0;
-        const quizErros = sessionStorage.getItem('quiz_erros') || 0;
+        const quizAcertosSCCP = sessionStorage.getItem('quiz_acertos_sccp') || 0;
+        const quizErrosSCCP = sessionStorage.getItem('quiz_erros_sccp') || 0;
 
         const ctx = document.getElementById('myChart');
 
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Quiz Resultados'],
+                labels: ['Quiz SCCP'],
                 datasets: [{
                     label: 'Acertos',
-                    data: [quizAcertos],
+                    data: [quizAcertosSCCP],
                     backgroundColor: '#75b2f4',
                     borderColor: 'white',
                     font: {
@@ -119,7 +132,44 @@
                     }
                 }, {
                     label: 'Erros',
-                    data: [quizErros],
+                    data: [quizErrosSCCP],
+                    backgroundColor: '#ff4736',
+                    borderColor: 'white',
+                    font: {
+                        family: "Poppins, sans-serif",
+                        size: 20
+                    }
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+
+        const quizAcertosGERAL = sessionStorage.getItem('quiz_acertos_geral') || 0;
+        const quizErrosGERAL = sessionStorage.getItem('quiz_erros_geral') || 0;
+        const ctx2 = document.getElementById('myChart2');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Quiz Geral'],
+                datasets: [{
+                    label: 'Acertos',
+                    data: [quizAcertosGERAL],
+                    backgroundColor: '#75b2f4',
+                    borderColor: 'white',
+                    font: {
+                        family: "Poppins, sans-serif",
+                        size: 20
+                    }
+                }, {
+                    label: 'Erros',
+                    data: [quizErrosGERAL],
                     backgroundColor: '#ff4736',
                     borderColor: 'white',
                     font: {

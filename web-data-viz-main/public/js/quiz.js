@@ -3,7 +3,6 @@ var questionElement = document.getElementById('question');
 var answerBox = document.getElementById('answers-box');
 var quizContainer = document.getElementById('quiz-container');
 var scoreContainer = document.getElementById('score-container');
-var restartBtn = document.getElementById('restart');
 var points = 0;
 var actualQuestion = 0;
 
@@ -153,7 +152,7 @@ function checkAnswer(button) {
         } else {
             createQuestion();
         }
-    }, 1500);
+    }, 500);
 }
 
 // Função para exibir a pontuação final
@@ -161,17 +160,11 @@ function checkAnswer(button) {
 function showScore() {
     quizContainer.style.display = 'none';
     scoreContainer.style.display = 'block';
-    document.getElementById('correct-answers').textContent = points;
-    document.getElementById('questions-qty').textContent = questions.length;
 
     // Armazenar resultados no sessionStorage
-    sessionStorage.setItem('quiz_acertos', points);
-    sessionStorage.setItem('quiz_erros', questions.length - points);
+    sessionStorage.setItem('quiz_acertos_sccp', points);
+    sessionStorage.setItem('quiz_erros_sccp', questions.length - points);
 }
-// Event listener para reiniciar o quiz
-restartBtn.onclick = function () {
-    init();
-};
 
 // Inicialização do quiz
 init();

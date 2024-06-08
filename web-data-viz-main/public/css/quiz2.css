@@ -257,24 +257,37 @@ body {
 
 #score-container2 {
   display: none;
+  display: flex;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  justify-content: center;
-  margin-top: 100px;
 
 }
 
-#restart2 {
-  font-family: "Poppins", sans-serif;
+.btn-viz-graf2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px;
+}
+
+.btn-viz-graf2 a {
+  text-decoration: none;
+}
+
+#btn-grafico2 {
+    font-family: "Poppins", sans-serif;
   padding: 10px 20px;
-  margin-top: 20px;
   background: #000000;
   color: white;
   border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#restart2:hover {
-  background: #656565;
+#btn-grafico2:hover {
+  background-color: #656565;
 }

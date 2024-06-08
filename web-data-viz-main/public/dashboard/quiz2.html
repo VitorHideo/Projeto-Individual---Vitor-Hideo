@@ -12,7 +12,7 @@
 </head>
 
 
-<body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
+<body onload="validarSessao()">
   <div class="container-dash2">
     <aside class="header-left2">
       <div class="logo2">
@@ -55,8 +55,10 @@
         <div id="score-container2">
           <h2>Parabéns</h2>
           <p id="display-score2"></p>
-          <p>Você acertou <span id="correct-answers2"></span> de <span id="questions-qty2"></span> perguntas</p>
-          <button id="restart2">Tentar Novamente!</button>
+          <p>Para vizualizar sua pontuação clique no botão abaixo</p>
+          <div class="btn-viz-graf2">
+            <a href="grafico.html"><button id="btn-grafico2">Ver Resultado</button></a>
+          </div>
         </div>
       </div>
 

@@ -5,7 +5,6 @@ var questionElement = document.getElementById('question2');
 var answerBox = document.getElementById('answers-box2');
 var quizContainer = document.getElementById('quiz-container2');
 var scoreContainer = document.getElementById('score-container2');
-var restartBtn = document.getElementById('restart2');
 var points = 0;
 var actualQuestion = 0;
 
@@ -162,14 +161,11 @@ function checkAnswer(button) {
 function showScore() {
     quizContainer.style.display = 'none';
     scoreContainer.style.display = 'block';
-    document.getElementById('correct-answers2').textContent = points;
-    document.getElementById('questions-qty2').textContent = questions2.length;
-}
 
-// Event listener para reiniciar o quiz
-restartBtn.onclick = function () {
-    init();
-};
+    sessionStorage.setItem('quiz_acertos_geral', points);
+    sessionStorage.setItem('quiz_erros_geral', questions2.length - points); // Certifique-se de que 'questions2' é o array correto.
+
+}
 
 // Inicialização do quiz
 init();
