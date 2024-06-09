@@ -190,6 +190,12 @@ body {
   color: #343a40;
 }
 
+.graficos {
+  display: flex;
+  margin-top: 100px;
+  justify-content: space-evenly;
+}
+
 .container-grafico-sccp {
   display: flex;
   justify-content: center;
@@ -200,17 +206,17 @@ body {
 .info-grafic {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 70px;
 }
 
 .info-grafic2 {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 120px;
 }
 
 .grafico-quiz {
@@ -238,7 +244,6 @@ body {
   border-radius: 20px;
   font-family: "Poppins", sans-serif;
   border: 1px solid #d4d4d4;
-  margin-bottom: 150px;
 }
 
 .container {
