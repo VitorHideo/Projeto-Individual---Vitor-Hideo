@@ -277,15 +277,12 @@ body {
 
 
 .corpotitulo, .corpotitulo2 {
-    padding: 40px 0;
-    background-color: #121212;
+    padding: 20px;
 }
 
 .corpotitulo h1, .corpotitulo2 h1 {
     text-align: center;
-    margin-bottom: 40px;
-    font-size: 36px;
-    color: #fff;
+    margin-bottom: 20px;
 }
 
 .titulo {
@@ -295,35 +292,29 @@ body {
 }
 
 .card_titulo {
-    background-color: #1c1c1c;
+    background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px;
-    padding: 20px;
-    width: 250px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin: 10px;
+    width: 300px;
     text-align: center;
-    transition: transform 0.3s;
-}
-
-.card_titulo:hover {
-    transform: scale(1.05);
 }
 
 .card_titulo img {
     width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    height: auto;
 }
 
 .card_titulo h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #f1c40f;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
 }
 
 .card_titulo h5 {
-    font-size: 18px;
-    color: #bbb;
+    padding: 10px 0;
+    font-size: 16px;
 }
 
 

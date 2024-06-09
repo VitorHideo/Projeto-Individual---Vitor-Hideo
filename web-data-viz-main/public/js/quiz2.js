@@ -11,97 +11,96 @@ var actualQuestion = 0;
 // questions
 var questions2 = [
     {
-        question: '1- Qual é a seleção com mais copas do mundo?',
-        answers: [
-            { answer: 'Brasil', correct: true },
-            { answer: 'Alemanha', correct: false },
-            { answer: 'Itália', correct: false },
-            { answer: 'França', correct: false },
-        ],
+        "question": "1- Qual é a seleção com mais copas do mundo?",
+        "answers": [
+            { "answer": "Brasil", "correct": true },
+            { "answer": "Alemanha", "correct": false },
+            { "answer": "Itália", "correct": false },
+            { "answer": "França", "correct": false }
+        ]
     },
     {
-        question: '2 - Qual foi o último brasileira a ganhar o prêmio bola de ouro?',
-        answers: [
-            { answer: 'Ronaldo Fenômeno', correct: false},
-            { answer: 'Ronaldinho Gaúcho', correct: false },
-            { answer: 'Kaká', correct: true},
-            { answer: 'Neymar', correct: false },
-        ],
+        "question": "2 - Qual foi o último brasileira a ganhar o prêmio bola de ouro?",
+        "answers": [
+            { "answer": "Ronaldo Fenômeno", "correct": false },
+            { "answer": "Ronaldinho Gaúcho", "correct": false },
+            { "answer": "Kaká", "correct": true },
+            { "answer": "Neymar", "correct": false }
+        ]
     },
     {
-        question: '3- Qual foi a primeira seleção campeã da copa do mundo?',
-        answers: [
-            { answer: 'França', correct: false},
-            { answer: 'Alemanha', correct: false },
-            { answer: 'Argentina', correct: false },
-            { answer: 'Uruguai', correct: true },
-        ],
+        "question": "3- Qual foi a primeira seleção campeã da copa do mundo?",
+        "answers": [
+            { "answer": "França", "correct": false },
+            { "answer": "Alemanha", "correct": false },
+            { "answer": "Argentina", "correct": false },
+            { "answer": "Uruguai", "correct": true }
+        ]
     },
     {
-        question: '4- Qual é o nome da primeira divisão da liga inglesa?',
-        answers: [
-            { answer: 'The English League', correct: false},
-            { answer: 'Inglesão', correct: false },
-            { answer: 'Premier League', correct: true},
-            { answer: 'Ligue One', correct: false},
-        ],
+        "question": "4- Qual é o nome da primeira divisão da liga inglesa?",
+        "answers": [
+            { "answer": "The English League", "correct": false },
+            { "answer": "Inglesão", "correct": false },
+            { "answer": "Premier League", "correct": true },
+            { "answer": "Ligue One", "correct": false }
+        ]
     },
     {
-        question: '5- Qual foi o país sede da copa do mundo de 2002?',
-        answers: [
-            { answer: 'França', correct: false},
-            { answer: 'Uruguai', correct: false },
-            { answer: 'Rússia', correct: false },
-            { answer: 'Japão/Coréia do Sul', correct: true },
-    
-        ],
+        "question": "5- Qual foi o país sede da copa do mundo de 2002?",
+        "answers": [
+            { "answer": "França", "correct": false },
+            { "answer": "Uruguai", "correct": false },
+            { "answer": "Rússia", "correct": false },
+            { "answer": "Japão/Coréia do Sul", "correct": true }
+        ]
     },
     {
-        question: '6- Quem é o maior artilheiro do Brasileirão?',
-        answers: [
-            { answer: 'Roberto Dinamite', correct: true},
-            { answer: 'Romário', correct: false },
-            { answer: 'Vampeta', correct: false },
-            { answer: 'Ronaldo Fenômeno', correct: false},
-        ],
+        "question": "6- Quem é o maior artilheiro do Brasileirão?",
+        "answers": [
+            { "answer": "Roberto Dinamite", "correct": true },
+            { "answer": "Romário", "correct": false },
+            { "answer": "Vampeta", "correct": false },
+            { "answer": "Ronaldo Fenômeno", "correct": false }
+        ]
     },
     {
-        question: '7- Qual foi o primeiro time a ganhar o Mundial de Clubes FIFA?',
-        answers: [
-            { answer: 'Roma', correct: false},
-            { answer: 'Corinthians', correct: true},
-            { answer: 'Inter de Milão', correct: false },
-            { answer: 'Real Madrid', correct: false },
-        ],
+        "question": "7- Qual foi o primeiro time a ganhar o Mundial de Clubes FIFA?",
+        "answers": [
+            { "answer": "Roma", "correct": false },
+            { "answer": "Corinthians", "correct": true },
+            { "answer": "Inter de Milão", "correct": false },
+            { "answer": "Real Madrid", "correct": false }
+        ]
     },
     {
-        question: '8- Qual destes times não tem o título da champions league?',
-        answers: [
-            { answer: 'Nottigham Forest', correct: false},
-            { answer: 'Roma', correct: true },
-            { answer: 'Steaua Bucareste', correct: false },
-            { answer: 'Borussia Dortmund', correct: false },
-        ],
+        "question": "8- Qual destes times não tem o título da champions league?",
+        "answers": [
+            { "answer": "Nottigham Forest", "correct": false },
+            { "answer": "Roma", "correct": true },
+            { "answer": "Steaua Bucareste", "correct": false },
+            { "answer": "Borussia Dortmund", "correct": false }
+        ]
     },
     {
-        question: '9- Qual destes times é conhecido popularmente como Papão?',
-        answers: [
-            { answer: 'Internacional', correct: false},
-            { answer: 'Remo', correct: false },
-            { answer: 'Paysandu', correct: true },
-            { answer: 'Corinthians', correct: false },
-        ],
+        "question": "9- Qual destes times é conhecido popularmente como Papão?",
+        "answers": [
+            { "answer": "Internacional", "correct": false },
+            { "answer": "Remo", "correct": false },
+            { "answer": "Paysandu", "correct": true },
+            { "answer": "Corinthians", "correct": false }
+        ]
     },
     {
-        question: '10- Quem foi o autor do gol do título do Chelsea no Mundial de Clubes de 2021?',
-        answers: [
-            { answer: 'Kai Havertz', correct: true},
-            { answer: 'Lukaku', correct: false },
-            { answer: 'Paolo Guerrero', correct: false},
-            { answer: 'Frank Lampard', correct: false },
-        ],
-    },
-];
+        "question": "10- Quem foi o autor do gol do título do Chelsea no Mundial de Clubes de 2021?",
+        "answers": [
+            { "answer": "Kai Havertz", "correct": true },
+            { "answer": "Lukaku", "correct": false },
+            { "answer": "Paolo Guerrero", "correct": false },
+            { "answer": "Frank Lampard", "correct": false }
+        ]
+    }
+]
 
 // Função para inicializar o quiz
 function init() {

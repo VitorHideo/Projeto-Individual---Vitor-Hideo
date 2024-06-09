@@ -25,10 +25,5 @@ CREATE TABLE aviso (
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 
-CREATE TABLE quiz (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	acertos INT,
-	erros INT,
-	fk_usuario_quiz INT,
-	FOREIGN KEY (fk_usuario_quiz) REFERENCES usuario(id)
-);
+SELECT * FROM usuario JOIN aviso 
+	ON fk_usuario = usuario.id;
