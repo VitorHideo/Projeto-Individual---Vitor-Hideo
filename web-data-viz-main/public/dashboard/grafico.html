@@ -161,19 +161,20 @@
         const quizErrosGERAL = sessionStorage.getItem('quiz_erros_geral') || 0;
         const ctx2 = document.getElementById('myChart2');
         new Chart(ctx2, {
-            type: 'bar',
+            type: 'pie',
             data: {
-                labels: ['Quiz Geral'],
+                labels: ['Acertos',
+                'Erros'],
                 datasets: [{
-                    label: 'Acertos',
-                    data: [quizAcertosGERAL],
-                    backgroundColor: '#75b2f4',
+                    label: 'Quiz SCCP',
+                    data: [quizAcertosGERAL , quizErrosGERAL],
+                    backgroundColor: ['#75b2f4', '#ff4736'],
                     borderColor: 'white',
                     font: {
                         family: "Poppins, sans-serif",
                         size: 20
                     }
-                }, {
+                }, /*{
                     label: 'Erros',
                     data: [quizErrosGERAL],
                     backgroundColor: '#ff4736',
@@ -182,7 +183,7 @@
                         family: "Poppins, sans-serif",
                         size: 20
                     }
-                }]
+                }*/]
             },
             options: {
                 scales: {
