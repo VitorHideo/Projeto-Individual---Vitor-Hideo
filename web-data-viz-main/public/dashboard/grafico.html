@@ -46,7 +46,7 @@
         <main class="main-content">
             <header class="main-header">
                 <h1>
-                    <center>Bem-vindo à Dashboard</center>
+                    <center>Confira os seus resultados</center>
                 </h1>
             </header>
             <section class="content">
@@ -212,7 +212,7 @@
         const quizErrosGERAL = parseInt(sessionStorage.getItem('quiz_erros_geral')) || 0;
 
         const totalAcertos = quizAcertosSCCP + quizAcertosGERAL;
-        const totalQuestoes = quizAcertosSCCP + quizErrosSCCP + quizAcertosGERAL + quizErrosGERAL;
+        const totalQuestoes = 20;
 
         const mediaAcertos = totalQuestoes > 0 ? (totalAcertos / totalQuestoes * 10).toFixed(1) : 0;
 

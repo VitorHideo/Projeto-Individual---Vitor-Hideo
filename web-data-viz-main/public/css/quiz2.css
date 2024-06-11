@@ -202,12 +202,16 @@ body {
   justify-content: center;
   align-items: center;
   width: 600px;
-  height: 380px;
+  height: auto;
   padding: 30px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 20px;
   background-color: #ffffff;
   color: #000000;
+}
+
+#quiz-container2 {
+  height: 350px;
 }
 
 .logo-quiz2 {
@@ -261,7 +265,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-
+  height: auto;
 }
 
 .btn-viz-graf2 {
