@@ -60,7 +60,7 @@
                 </div>
                 <div class="card">
                     <h3>Média acertos</h3>
-                    <p>7,7</p>
+                    <p id="media-acertos">0</p>
                 </div>
             </section>
 
@@ -81,8 +81,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
 
             <div class="info-grafic3">
@@ -97,47 +95,48 @@
     </div>
 
     <script>
-    //Chamando todas as funções quando a página for carregada
+    // Chamando todas as funções quando a página for carregada
     function inicioDash() {
         visitas();
         mostrarGraficoVisitas();
-        mostrarUsuario(); 
-        mostrarGraficosQuiz(); 
+        mostrarUsuario();
+        mostrarGraficosQuiz();
+        calcularMediaAcertos();
     }
 
     // Registro do número de visitas na página
     function visitas() {
-        let visitData = JSON.parse(localStorage.getItem('visitData')) || {}; 
-        let today = new Date().toISOString().split('T')[0]; 
+        let visitData = JSON.parse(localStorage.getItem('visitData')) || {};
+        let today = new Date().toISOString().split('T')[0];
 
         if (!visitData[today]) {
-            visitData[today] = 0; 
+            visitData[today] = 0;
         }
-        visitData[today]++; 
+        visitData[today]++;
 
-        localStorage.setItem('visitData', JSON.stringify(visitData)); 
-        document.getElementById('visit-count').innerText = visitData[today]; 
+        localStorage.setItem('visitData', JSON.stringify(visitData));
+        document.getElementById('visit-count').innerText = visitData[today];
     }
 
     // Mostra gráfico de visitas
     function mostrarGraficoVisitas() {
-        let visitData = JSON.parse(localStorage.getItem('visitData')) || {}; 
-        let dates = Object.keys(visitData); 
-        let visits = Object.values(visitData); 
+        let visitData = JSON.parse(localStorage.getItem('visitData')) || {};
+        let dates = Object.keys(visitData);
+        let visits = Object.values(visitData);
 
-        const ctx = document.getElementById('visitsChart')
+        const ctx = document.getElementById('visitsChart');
 
         // Configurando informações do gráfico
-        new Chart(ctx, { 
-            type: 'bar', 
+        new Chart(ctx, {
+            type: 'bar',
             data: {
-                labels: dates, 
+                labels: dates,
                 datasets: [{
-                    label: 'Visitas Diárias', 
-                    data: visits, 
+                    label: 'Visitas Diárias',
+                    data: visits,
                     backgroundColor: 'black',
-                    borderColor: '#ffffff', 
-                    borderWidth: 1 
+                    borderColor: '#ffffff',
+                    borderWidth: 1
                 }]
             },
             options: {
@@ -150,95 +149,74 @@
         });
     }
 
-    // Mostrar o número do usuario pelo ID
+    // Mostrar o número do usuário pelo ID
     function mostrarUsuario() {
-        const idUsuario = sessionStorage.ID_USUARIO || "usuário"; 
-        const nomeUsuario = sessionStorage.NOME_USUARIO || "usuário"; 
-        document.getElementById('total_usuario').innerText = idUsuario; 
+        const idUsuario = sessionStorage.ID_USUARIO || "usuário";
+        const nomeUsuario = sessionStorage.NOME_USUARIO || "usuário";
+        document.getElementById('total_usuario').innerText = idUsuario;
         document.getElementById('b_usuario').innerText = nomeUsuario;
     }
 
-    // grafico SCCP
+    // Gráfico SCCP
     function mostrarGraficosQuiz() {
-
-        const quizAcertosSCCP = sessionStorage.getItem('quiz_acertos_sccp') || 0;
-        const quizErrosSCCP = sessionStorage.getItem('quiz_erros_sccp') || 0;
+        const quizAcertosSCCP = parseInt(sessionStorage.getItem('quiz_acertos_sccp')) || 0;
+        const quizErrosSCCP = parseInt(sessionStorage.getItem('quiz_erros_sccp')) || 0;
 
         const ctx = document.getElementById('myChart').getContext('2d');
 
-        // configurando informações do gráfico
-        new Chart(ctx, { 
+        // Configurando informações do gráfico
+        new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: ['Acertos', 'Erros'],
                 datasets: [{
-                    label: 'Quiz SCCP', 
+                    label: 'Quiz SCCP',
                     data: [quizAcertosSCCP, quizErrosSCCP],
-                    backgroundColor: ['black', '#a0a0a0'], 
+                    backgroundColor: ['#75b2f4', '#ff4736'],
                     font: {
-                        family: "Poppins, sans-serif", 
-                        size: 20 
+                        family: "Poppins, sans-serif",
+                        size: 20
                     }
                 }]
             }
         });
 
         // Gráfico Geral
-        const quizAcertosGERAL = sessionStorage.getItem('quiz_acertos_geral') || 0;
-        const quizErrosGERAL = sessionStorage.getItem('quiz_erros_geral') || 0;
-<<<<<<< HEAD
-        const ctx2 = document.getElementById('myChart2').getContext('2d'); 
+        const quizAcertosGERAL = parseInt(sessionStorage.getItem('quiz_acertos_geral')) || 0;
+        const quizErrosGERAL = parseInt(sessionStorage.getItem('quiz_erros_geral')) || 0;
+        const ctx2 = document.getElementById('myChart2').getContext('2d');
 
-        // configurando informações do gráfico
-        new Chart(ctx2, { 
-            type: 'pie', 
-            data: {
-                labels: ['Acertos', 'Erros'], 
-                datasets: [{
-                    label: 'Quiz Geral',
-                    data: [quizAcertosGERAL, quizErrosGERAL], 
-                    backgroundColor: ['black', '#a0a0a0'],
-                    font: {
-                        family: "Poppins, sans-serif", 
-                        size: 20 
-                    }
-                }]
-=======
-        const ctx2 = document.getElementById('myChart2');
+        // Configurando informações do gráfico
         new Chart(ctx2, {
             type: 'pie',
             data: {
-                labels: ['Acertos',
-                'Erros'],
+                labels: ['Acertos', 'Erros'],
                 datasets: [{
-                    label: 'Quiz SCCP',
-                    data: [quizAcertosGERAL , quizErrosGERAL],
+                    label: 'Quiz Geral',
+                    data: [quizAcertosGERAL, quizErrosGERAL],
                     backgroundColor: ['#75b2f4', '#ff4736'],
-                    borderColor: 'white',
                     font: {
                         family: "Poppins, sans-serif",
                         size: 20
                     }
-                }, /*{
-                    label: 'Erros',
-                    data: [quizErrosGERAL],
-                    backgroundColor: '#ff4736',
-                    borderColor: 'white',
-                    font: {
-                        family: "Poppins, sans-serif",
-                        size: 20
-                    }
-                }*/]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
->>>>>>> b4b9c6860a10de74c9286186f5eddc921fcf381e
+                }]
             }
         });
+    }
+
+    // Função para calcular a média de acertos do quiz
+    function calcularMediaAcertos() {
+        const quizAcertosSCCP = parseInt(sessionStorage.getItem('quiz_acertos_sccp')) || 0;
+        const quizErrosSCCP = parseInt(sessionStorage.getItem('quiz_erros_sccp')) || 0;
+        const quizAcertosGERAL = parseInt(sessionStorage.getItem('quiz_acertos_geral')) || 0;
+        const quizErrosGERAL = parseInt(sessionStorage.getItem('quiz_erros_geral')) || 0;
+
+        const totalAcertos = quizAcertosSCCP + quizAcertosGERAL;
+        const totalQuestoes = quizAcertosSCCP + quizErrosSCCP + quizAcertosGERAL + quizErrosGERAL;
+
+        const mediaAcertos = totalQuestoes > 0 ? (totalAcertos / totalQuestoes * 10).toFixed(1) : 0;
+
+        document.getElementById('media-acertos').innerText = mediaAcertos;
     }
     </script>
 </body>
