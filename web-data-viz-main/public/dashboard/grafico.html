@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCCP | Graficos</title>
 
-
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
     <link rel="stylesheet" href="./../css/quiz.css" />
@@ -17,25 +16,22 @@
     <script src="../js/quiz.js"></script>
     <script src="../js/quiz2.js"></script>
 
-
     <!--FONT AWESOME-->
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="incrementVisitCounter()">
+<body onload="inicioDash()">
 
     <div class="container-dash">
         <aside class="header-left">
-
             <div class="logo">
                 <img src="./../img/logooo.png" alt="">
             </div>
-
             <nav class="header-left-nav">
                 <div class="hello">
                     <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
                 </div>
-
                 <ul>
                     <li><a href="quiz.html">Quiz</a></li>
                     <li><a href="grafico.html">Graficos</a></li>
@@ -60,8 +56,7 @@
                 </div>
                 <div class="card">
                     <h3>Usuários</h3>
-                    <div id="total_usuario">
-                    </div>
+                    <div id="total_usuario"></div>
                 </div>
                 <div class="card">
                     <h3>Média acertos</h3>
@@ -69,128 +64,148 @@
                 </div>
             </section>
 
-        <div class="graficos">
+            <div class="graficos">
+                <div class="info-grafic">
+                    <h2>Resultado do Quiz sobre o Corinthians</h2>
+                    <div class="container-grafico-sccp">
+                        <div class="grafico-quiz">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-grafic2">
+                    <h2>Resultado do Quiz sobre o futebol em geral</h2>
+                    <div class="container-grafico-geral">
+                        <div class="grafico-geral">
+                            <canvas id="myChart2"></canvas>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="info-grafic">
-                <h2>Resultado do Quiz sobre o Corinthians</h2>
-            
-        <div class="container-grafico-sccp">
-            <div class="grafico-quiz">
-                <canvas id="myChart"></canvas>
+
             </div>
-        </div>
-    </div>  
 
-
-        <div class="info-grafic2">
-            <h2>Resultado do Quiz sobre o futebol em geral</h2>
-           
-        <div class="container-grafico-geral">
-            <div class="grafico-geral">
-                <canvas id="myChart2"></canvas>
+            <div class="info-grafic3">
+                <h2>Total de Visitas Diárias</h2>
+                <div class="container-grafico-visitas">
+                    <div class="grafico-visitas">
+                        <canvas id="visitsChart"></canvas>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>  
-    </div>
-
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
         </main>
     </div>
-</body>
 
-</html>
+    <script>
+    //Chamando todas as funções quando a página for carregada
+    function inicioDash() {
+        visitas();
+        mostrarGraficoVisitas();
+        mostrarUsuario(); 
+        mostrarGraficosQuiz(); 
+    }
 
-<script>
+    // Registro do número de visitas na página
+    function visitas() {
+        let visitData = JSON.parse(localStorage.getItem('visitData')) || {}; 
+        let today = new Date().toISOString().split('T')[0]; 
 
-        const idUsuario = sessionStorage.ID_USUARIO;
-        total_usuario.innerHTML = `${idUsuario}`;
-        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
-        function incrementVisitCounter() {
-            let visits = localStorage.getItem('visitCount');
-            if (!visits) {
-                visits = 0;
-            }
-            visits++;
-            localStorage.setItem('visitCount', visits);
-            document.getElementById('visit-count').innerText = visits;
+        if (!visitData[today]) {
+            visitData[today] = 0; 
         }
+        visitData[today]++; 
 
-        // Recuperar os resultados do quiz
+        localStorage.setItem('visitData', JSON.stringify(visitData)); 
+        document.getElementById('visit-count').innerText = visitData[today]; 
+    }
+
+    // Mostra gráfico de visitas
+    function mostrarGraficoVisitas() {
+        let visitData = JSON.parse(localStorage.getItem('visitData')) || {}; 
+        let dates = Object.keys(visitData); 
+        let visits = Object.values(visitData); 
+
+        const ctx = document.getElementById('visitsChart')
+
+        // Configurando informações do gráfico
+        new Chart(ctx, { 
+            type: 'bar', 
+            data: {
+                labels: dates, 
+                datasets: [{
+                    label: 'Visitas Diárias', 
+                    data: visits, 
+                    backgroundColor: 'black',
+                    borderColor: '#ffffff', 
+                    borderWidth: 1 
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true // Configura o eixo y para começar do zero
+                    }
+                }
+            }
+        });
+    }
+
+    // Mostrar o número do usuario pelo ID
+    function mostrarUsuario() {
+        const idUsuario = sessionStorage.ID_USUARIO || "usuário"; 
+        const nomeUsuario = sessionStorage.NOME_USUARIO || "usuário"; 
+        document.getElementById('total_usuario').innerText = idUsuario; 
+        document.getElementById('b_usuario').innerText = nomeUsuario;
+    }
+
+    // grafico SCCP
+    function mostrarGraficosQuiz() {
+
         const quizAcertosSCCP = sessionStorage.getItem('quiz_acertos_sccp') || 0;
         const quizErrosSCCP = sessionStorage.getItem('quiz_erros_sccp') || 0;
 
-        const ctx = document.getElementById('myChart');
+        const ctx = document.getElementById('myChart').getContext('2d');
 
-        new Chart(ctx, {
-            type: 'bar',
+        // configurando informações do gráfico
+        new Chart(ctx, { 
+            type: 'pie',
             data: {
-                labels: ['Quiz SCCP'],
+                labels: ['Acertos', 'Erros'],
                 datasets: [{
-                    label: 'Acertos',
-                    data: [quizAcertosSCCP],
-                    backgroundColor: '#75b2f4',
-                    borderColor: 'white',
+                    label: 'Quiz SCCP', 
+                    data: [quizAcertosSCCP, quizErrosSCCP],
+                    backgroundColor: ['black', '#a0a0a0'], 
                     font: {
-                        family: "Poppins, sans-serif",
-                        size: 20
-                    }
-                }, {
-                    label: 'Erros',
-                    data: [quizErrosSCCP],
-                    backgroundColor: '#ff4736',
-                    borderColor: 'white',
-                    font: {
-                        family: "Poppins, sans-serif",
-                        size: 20
+                        family: "Poppins, sans-serif", 
+                        size: 20 
                     }
                 }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
             }
         });
 
-
+        // Gráfico Geral
         const quizAcertosGERAL = sessionStorage.getItem('quiz_acertos_geral') || 0;
         const quizErrosGERAL = sessionStorage.getItem('quiz_erros_geral') || 0;
-        const ctx2 = document.getElementById('myChart2');
-        new Chart(ctx2, {
-            type: 'bar',
+        const ctx2 = document.getElementById('myChart2').getContext('2d'); 
+
+        // configurando informações do gráfico
+        new Chart(ctx2, { 
+            type: 'pie', 
             data: {
-                labels: ['Quiz Geral'],
+                labels: ['Acertos', 'Erros'], 
                 datasets: [{
-                    label: 'Acertos',
-                    data: [quizAcertosGERAL],
-                    backgroundColor: '#75b2f4',
-                    borderColor: 'white',
+                    label: 'Quiz Geral',
+                    data: [quizAcertosGERAL, quizErrosGERAL], 
+                    backgroundColor: ['black', '#a0a0a0'],
                     font: {
-                        family: "Poppins, sans-serif",
-                        size: 20
-                    }
-                }, {
-                    label: 'Erros',
-                    data: [quizErrosGERAL],
-                    backgroundColor: '#ff4736',
-                    borderColor: 'white',
-                    font: {
-                        family: "Poppins, sans-serif",
-                        size: 20
+                        family: "Poppins, sans-serif", 
+                        size: 20 
                     }
                 }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
             }
         });
+    }
+    </script>
+</body>
 
-</script>
+</html>

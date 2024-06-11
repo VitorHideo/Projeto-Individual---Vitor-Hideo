@@ -219,9 +219,19 @@ body {
   align-items: center;
 }
 
+.info-grafic3 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
 .grafico-quiz {
   background-color: #fff;
-  width: 500px;
+  width: 400px;
   padding: 30px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 20px;
@@ -238,12 +248,31 @@ body {
 
 .grafico-geral {
   background-color: #fff;
+  width: 400px;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid #d4d4d4;
+}
+
+.container-grafico-visitas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 200px;
+}
+
+.grafico-visitas{
+  background-color: #fff;
   width: 500px;
   padding: 30px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 20px;
   font-family: "Poppins", sans-serif;
   border: 1px solid #d4d4d4;
+  border: 1px solid #a0a0a0;
 }
 
 .container {

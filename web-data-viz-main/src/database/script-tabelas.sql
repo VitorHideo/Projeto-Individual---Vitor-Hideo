@@ -25,5 +25,9 @@ CREATE TABLE aviso (
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 
+SELECT * FROM usuario;
+
+SELECT * FROM aviso;
+
 SELECT * FROM usuario JOIN aviso 
 	ON fk_usuario = usuario.id;

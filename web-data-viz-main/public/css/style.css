@@ -155,17 +155,13 @@ body {
 }
 
 
-
-
 .footer {
-    height: 70px;
-    background-color: rgb(179, 179, 179);
-}
-
-.footer .container {
+    background-color: black;
+    color: white;
+    text-align: center;
+    display: flex;
     justify-content: center;
-    align-items: center;
-    height: 70px;
+    height: 100px;
 }
 
 .login .container {
@@ -276,45 +272,54 @@ body {
 }
 
 
-.corpotitulo, .corpotitulo2 {
-    padding: 20px;
+.corpotitulo {
+    padding: 20px 0;
+    background-color: #ffffff;
 }
 
-.corpotitulo h1, .corpotitulo2 h1 {
+.corpotitulo h1 {
     text-align: center;
     margin-bottom: 20px;
+    color: rgb(0, 0, 0);
 }
 
 .titulo {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .card_titulo {
-    background-color: #fff;
+    background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    overflow: hidden;
-    margin: 10px;
-    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 50px;
+    width: 250px;
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card_titulo:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card_titulo img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     width: 100%;
     height: auto;
 }
 
 .card_titulo h3 {
-    background-color: #333;
-    color: #fff;
+    background-color: black;
+    color: white;
     padding: 10px 0;
 }
 
 .card_titulo h5 {
+    color: #555;
     padding: 10px 0;
-    font-size: 16px;
 }
 
 
