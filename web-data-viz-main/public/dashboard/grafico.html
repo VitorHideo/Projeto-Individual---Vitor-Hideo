@@ -186,6 +186,7 @@
         // Gráfico Geral
         const quizAcertosGERAL = sessionStorage.getItem('quiz_acertos_geral') || 0;
         const quizErrosGERAL = sessionStorage.getItem('quiz_erros_geral') || 0;
+<<<<<<< HEAD
         const ctx2 = document.getElementById('myChart2').getContext('2d'); 
 
         // configurando informações do gráfico
@@ -202,6 +203,40 @@
                         size: 20 
                     }
                 }]
+=======
+        const ctx2 = document.getElementById('myChart2');
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Acertos',
+                'Erros'],
+                datasets: [{
+                    label: 'Quiz SCCP',
+                    data: [quizAcertosGERAL , quizErrosGERAL],
+                    backgroundColor: ['#75b2f4', '#ff4736'],
+                    borderColor: 'white',
+                    font: {
+                        family: "Poppins, sans-serif",
+                        size: 20
+                    }
+                }, /*{
+                    label: 'Erros',
+                    data: [quizErrosGERAL],
+                    backgroundColor: '#ff4736',
+                    borderColor: 'white',
+                    font: {
+                        family: "Poppins, sans-serif",
+                        size: 20
+                    }
+                }*/]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+>>>>>>> b4b9c6860a10de74c9286186f5eddc921fcf381e
             }
         });
     }
