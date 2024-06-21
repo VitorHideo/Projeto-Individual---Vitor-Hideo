@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="./../css/quiz.css">
   <link rel="shortcut icon" href="./../img/logooo.png">
 
+  <!--link de biblioteca de animações css-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <script src="../js/sessao.js"></script>
 </head>
 
@@ -36,7 +39,7 @@
       </nav>
     </aside>
 
-    <main class="main-content">
+    <main data-aos="zoom-in"  data-aos-duration="800" class="main-content">
       <header class="main-header">
         <h1>Seja Bem Vindo Torcedor</h1>
       </header>
@@ -44,7 +47,7 @@
         <h2>Teste o seu conhecimento realizando o Quiz</h2>
       </section>
 
-      <div class="container">
+      <div  class="container">
         <div id="quiz-container">
           <div class="logo-quiz">
             <img src="./../img/quiz3v2.jpg" alt="">
@@ -114,6 +117,14 @@
   </div>
   <script src="./../js/quiz.js"></script>
 </body>
+
+<!--Script para animação css-->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    //animação css
+    AOS.init();
+</script>
 
 </html>
 

@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="img/logooo.png">
+    <!--link de biblioteca de animações css-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,7 +36,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="card2">
+            <div data-aos="zoom-in-up"  class="card2">
                 <div class="icone"><img src="img/logincadsatro.png" alt=""></div>
                 <h2>Login</h2>
 
@@ -77,7 +79,13 @@
 <!--Script para os icones da inputs-->
 <script src="https://kit.fontawesome.com/c2c1a07a20.js" crossorigin="anonymous"></script>
 
+<!--Script para animação css-->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
+
+    //animação css
+    AOS.init();
 
 
     function entrar() {

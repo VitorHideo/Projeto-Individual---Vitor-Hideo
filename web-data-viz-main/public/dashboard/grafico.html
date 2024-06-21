@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="./../css/quiz.css" />
     <link rel="shortcut icon" href="./../img/logooo.png">
 
+    <!--link de biblioteca de animações css-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <script src="../js/sessao.js"></script>
     <script src="../js/quiz.js"></script>
     <script src="../js/quiz2.js"></script>
@@ -43,7 +46,7 @@
             </nav>
         </aside>
 
-        <main class="main-content">
+        <main data-aos="zoom-in"  data-aos-duration="800" class="main-content">
             <header class="main-header">
                 <h1>
                     <center>Confira os seus resultados</center>
@@ -94,7 +97,12 @@
         </main>
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
+
+    AOS.init();
+
     // Chamando todas as funções quando a página for carregada
     function inicioDash() {
         visitas();

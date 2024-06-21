@@ -43,6 +43,20 @@ body {
     align-items: center;
 }
 
+.navbar li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar li a:hover {
+    color: #ffcc00;
+}
+
+.agora {
+    color: rgb(255, 204, 0);
+}
+
 .banner {
     height: 900px;
     color: #fff;

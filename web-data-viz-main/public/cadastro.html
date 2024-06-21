@@ -10,6 +10,9 @@
 
   <link rel="stylesheet" href="./css/style.css">
   <link rel="shortcut icon" href="img/logooo.png">
+
+  <!--link de biblioteca de animações css-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,7 +37,7 @@
       </div>
     </div>
     <div class="container">
-      <div class="card3">
+      <div data-aos="zoom-in-up" class="card3">
         <div class="icone"><img src="img/logincadsatro.png" alt=""></div>
         <h2>Cadastro</h2>
 
@@ -77,8 +80,10 @@
   </div>
 
   <div class="footer">
-    <center><img style="width: 35px; margin-top: 10px;" src="./img/footer.jpg" alt=""><p style="margin: 0;">Feito por Vitor Hideo - SPTECH &copy; | Site do Sport Club Corinthians Paulista</p></center>
-</div>
+    <center><img style="width: 35px; margin-top: 10px;" src="./img/footer.jpg" alt="">
+      <p style="margin: 0;">Feito por Vitor Hideo - SPTECH &copy; | Site do Sport Club Corinthians Paulista</p>
+    </center>
+  </div>
 
 </body>
 
@@ -87,7 +92,16 @@
 <!--Script para os ícones das inputs-->
 <script src="https://kit.fontawesome.com/c2c1a07a20.js" crossorigin="anonymous"></script>
 
+<!--Script para animação css-->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
 <script>
+
+  //animação css
+  AOS.init();
+
+
   function cadastrar() {
     aguardar();
 
@@ -155,7 +169,7 @@
 
     return false;
   }
-  
+
   function sumirMensagem() {
     cardErro.style.display = "none";
   }

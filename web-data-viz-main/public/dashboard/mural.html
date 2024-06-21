@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="./../css/quiz.css" />
     <link rel="shortcut icon" href="./../img/logooo.png">
 
+    <!--link de biblioteca de animações css-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <script src="../js/sessao.js"></script>
 
 </head>
@@ -41,7 +44,7 @@
             </nav>
         </aside>
 
-        <div class="dash-right">
+        <div data-aos="zoom-in"  data-aos-duration="800" class="dash-right">
             <div class="titulo-forum">
                 <h1>Forum do Corinthians</h1>
             </div>
@@ -82,7 +85,13 @@
 
 </body>
 
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
+
+    //animação css
+    AOS.init();
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
