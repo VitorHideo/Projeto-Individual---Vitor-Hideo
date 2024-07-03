@@ -156,14 +156,40 @@ function checkAnswer(button) {
     }, 500);
 }
 
+function saveQuizGeralResults(acertos, erros, fkUsuarioQuizGeral) {
+    fetch('/geral/cadastrar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            acertos: acertos,
+            erros: erros,
+            fkUsuarioQuizGeral: fkUsuarioQuizGeral,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
 // Função para exibir a pontuação final
 function showScore() {
     quizContainer.style.display = 'none';
     scoreContainer.style.display = 'block';
 
+    // Armazenar resultados no sessionStorage
     sessionStorage.setItem('quiz_acertos_geral', points);
-    sessionStorage.setItem('quiz_erros_geral', questions2.length - points); // Certifique-se de que 'questions2' é o array correto.
+    sessionStorage.setItem('quiz_erros_geral', questions.length - points);
 
+    var fkUsuarioQuizGeral = sessionStorage.getItem('usuario_id');
+
+    // Salvar os resultados no banco de dados
+    saveQuizGeralResults(points, questions.length - points, fkUsuarioQuizGeral);
 }
 
 // Inicialização do quiz

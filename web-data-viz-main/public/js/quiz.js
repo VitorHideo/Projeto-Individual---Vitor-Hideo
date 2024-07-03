@@ -154,6 +154,27 @@ function checkAnswer(button) {
     }, 500);
 }
 
+function saveQuizResults(acertos, erros, fkUsuarioQuizSccp) {
+    fetch('/sccp/cadastrar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            acertos: acertos,
+            erros: erros,
+            fkUsuarioQuizSccp: fkUsuarioQuizSccp,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
 // Função para exibir a pontuação final
 // Função para exibir a pontuação final
 function showScore() {
@@ -163,6 +184,11 @@ function showScore() {
     // Armazenar resultados no sessionStorage
     sessionStorage.setItem('quiz_acertos_sccp', points);
     sessionStorage.setItem('quiz_erros_sccp', questions.length - points);
+
+    var fkUsuarioQuizSccp = sessionStorage.getItem('usuario_id');
+
+    // Salvar os resultados no banco de dados
+    saveQuizResults(points, questions.length - points, fkUsuarioQuizSccp);
 }
 
 // Inicialização do quiz

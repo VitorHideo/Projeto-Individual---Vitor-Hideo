@@ -19,6 +19,9 @@ var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var avisosRouter = require("./src/routes/avisos");
 
+var sccpRouter = require("./src/routes/sccp");
+var geralRouter = require("./src/routes/geral");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -28,6 +31,9 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/avisos", avisosRouter);
+
+app.use("/sccp", sccpRouter);
+app.use("/geral", geralRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
