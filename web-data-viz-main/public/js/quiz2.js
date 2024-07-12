@@ -156,7 +156,7 @@ function checkAnswer(button) {
     }, 500);
 }
 
-function saveQuizGeralResults(acertos, erros, fkUsuarioQuizGeral) {
+function saveQuizResults(acertos, erros, fkUsuarioQuizGeral) {
     fetch('/geral/cadastrar', {
         method: 'POST',
         headers: {
@@ -189,7 +189,7 @@ function showScore() {
     var fkUsuarioQuizGeral = sessionStorage.getItem('usuario_id');
 
     // Salvar os resultados no banco de dados
-    saveQuizGeralResults(points, questions.length - points, fkUsuarioQuizGeral);
+    saveQuizResults(points, questions.length - points, fkUsuarioQuizGeral);
 }
 
 // Inicialização do quiz

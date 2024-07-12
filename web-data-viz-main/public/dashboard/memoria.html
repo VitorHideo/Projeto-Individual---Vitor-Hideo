@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCCP | Jogo da Memória</title>
+  <link rel="stylesheet" href="./../css/quiz2.css">
+  <link rel="stylesheet" href="./../css/memoria.css">
+  <link rel="shortcut icon" href="./../img/logooo.png">
+
+  <!--link de biblioteca de animações css-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script src="../js/sessao.js"></script>
+</head>
+
+
+<body onload="validarSessao()">
+  <div class="container-dash2">
+    <aside class="header-left2">
+      <div class="logo2">
+        <img src="./../img/logooo.png" alt="">
+      </div>
+      <nav class="header-left-nav2">
+        <div class="hello2">
+          <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+        </div>
+        <ul>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="grafico.html">Graficos</a></li>
+          <li><a href="mural.html">Forum</a></li>
+          <div class="btn-logout2" onclick="limparSessao()">
+            <h3>Sair</h3>
+          </div>
+        </ul>
+      </nav>
+    </aside>
+    <main data-aos="zoom-in"  data-aos-duration="800" class="main-content2">
+      <header class="main-header2">
+        <h1>
+          <center>Seja Bem Vindo Torcedor</center>
+        </h1>
+      </header>
+      <section class="content-quiz2">
+        <h2>Teste a sua memória jogando esse jogo!</h2>
+      </section>
+
+      <div class="col-8">
+        <section class="jogo-da-memoria">
+          <div class="card-memoria" data-framework="socrates">
+            <!--Card 1-->
+            <img class="card-frente" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQagPOek6VQYF0Dw6SwweH9i8pwshah-MV8_Y0eT_3s52VTOCeIaYn9cN6EfcGQznxB4CU&usqp=CAU" alt="socrates" />
+            <img class="card-costas" src="https://play-lh.googleusercontent.com/hM32CkUJoAn1bW7nYCvdFfRwzX6865gPP6h-6wkOOUmbETTBHMc5Oa24gjaUT0TQQc4" alt="Play" />
+          </div>
+
+          <div class="card-memoria" data-framework="socrates">
+            <img class="card-frente" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQagPOek6VQYF0Dw6SwweH9i8pwshah-MV8_Y0eT_3s52VTOCeIaYn9cN6EfcGQznxB4CU&usqp=CAU" alt="socrates" />
+            <img class="card-costas" src="https://play-lh.googleusercontent.com/hM32CkUJoAn1bW7nYCvdFfRwzX6865gPP6h-6wkOOUmbETTBHMc5Oa24gjaUT0TQQc4" alt="Play" />
+          </div>
+
+          <div class="card-memoria" data-framework="cassio">
+            <!--Card 2-->
+            <img class="card-frente" src="https://i.pinimg.com/564x/99/ea/17/99ea171d61bded624f86129809785d40.jpg" alt="cassio" />
+            <img class="card-costas" src="https://play-lh.googleusercontent.com/hM32CkUJoAn1bW7nYCvdFfRwzX6865gPP6h-6wkOOUmbETTBHMc5Oa24gjaUT0TQQc4" alt="Play" />
+          </div>
+          <div class="card-memoria" data-framework="cassio">
+            <img class="card-frente" src="https://i.pinimg.com/564x/99/ea/17/99ea171d61bded624f86129809785d40.jpg" alt="cassio" />
+            <img class="card-costas" src="https://play-lh.googleusercontent.com/hM32CkUJoAn1bW7nYCvdFfRwzX6865gPP6h-6wkOOUmbETTBHMc5Oa24gjaUT0TQQc4" alt="Play" />
+          </div>
+
+          <div class="card-memoria" data-framework="neto">
+            <!--Card 3-->
+            <img class="card-frente" src="https://todopoderosotimao.com.br/imagens/idolos/neto.jpg" alt="neto" />
+            <img class="card-costas" src="https://play-lh.googleusercontent.com/hM32CkUJoAn1bW7nYCvdFfRwzX6865gPP6h-6wkOOUmbETTBHMc5Oa24gjaUT0TQQc4" alt="Play" />
+          </div>
+          <div class="card-memoria" data-framework="neto">
+            <img class="card-frente" src="https://todopoderosotimao.com.br/imagens/idolos/neto.jpg" alt="neto" />
+            <img class="card-costas" src="https://play-lh.googleusercontent.com/hM32CkUJoAn1bW7nYCvdFfRwzX6865gPP6h-6wkOOUmbETTBHMc5Oa24gjaUT0TQQc4" alt="Play" />
+          </div>
+
+          <div class="card-memoria" data-framework="fenomeno">
+            <!--Card 4-->
+            <img class="card-frente" src="https://cdn.meutimao.com.br/_upload/noticia/2021/12/12/ronaldo-fenomeno-vai-ter-busto-no-corinthians-em-wd941w.jpg" alt="fenomeno" />
+            <img class="card-costas" src="https://play-lh.googleusercontent.com/hM32CkUJoAn1bW7nYCvdFfRwzX6865gPP6h-6wkOOUmbETTBHMc5Oa24gjaUT0TQQc4" alt="Play" />
+          </div>
+          <div class="card-memoria" data-framework="fenomeno">
+            <img class="card-frente" src="https://cdn.meutimao.com.br/_upload/noticia/2021/12/12/ronaldo-fenomeno-vai-ter-busto-no-corinthians-em-wd941w.jpg" alt="fenomeno" />
+            <img class="card-costas" src="https://play-lh.googleusercontent.com/hM32CkUJoAn1bW7nYCvdFfRwzX6865gPP6h-6wkOOUmbETTBHMc5Oa24gjaUT0TQQc4" alt="Play" />
+          </div>
+
+          <div class="card-memoria" data-framework="marcelinho">
+            <!--Card 5-->
+            <img class="card-frente" src="https://cdn.meutimao.com.br/_upload/idolos-do-corinthians/marcelinho_carioca.jpg" alt="marcelinho" />
+            <img class="card-costas" src="https://play-lh.googleusercontent.com/hM32CkUJoAn1bW7nYCvdFfRwzX6865gPP6h-6wkOOUmbETTBHMc5Oa24gjaUT0TQQc4" alt="Play" />
+          </div>
+          <div class="card-memoria" data-framework="marcelinho">
+            <img class="card-frente" src="https://cdn.meutimao.com.br/_upload/idolos-do-corinthians/marcelinho_carioca.jpg" alt="marcelinho" />
+            <img class="card-costas" src="https://play-lh.googleusercontent.com/hM32CkUJoAn1bW7nYCvdFfRwzX6865gPP6h-6wkOOUmbETTBHMc5Oa24gjaUT0TQQc4" alt="Play" />
+          </div>
+
+          <div class="card-memoria" data-framework="tite">
+            <!--Card 6-->
+            <img class="card-frente" src="https://amazonasatual.com.br/wp-content/uploads/2015/05/tite.jpg" alt="tite" />
+            <img class="card-costas" src="https://play-lh.googleusercontent.com/hM32CkUJoAn1bW7nYCvdFfRwzX6865gPP6h-6wkOOUmbETTBHMc5Oa24gjaUT0TQQc4" alt="Play" />
+          </div>
+          <div class="card-memoria" data-framework="tite">
+            <img class="card-frente" src="https://amazonasatual.com.br/wp-content/uploads/2015/05/tite.jpg" alt="tite" />
+            <img class="card-costas" src="https://play-lh.googleusercontent.com/hM32CkUJoAn1bW7nYCvdFfRwzX6865gPP6h-6wkOOUmbETTBHMc5Oa24gjaUT0TQQc4" alt="Play" />
+          </div>
+        </section>
+    </main>
+  </div>
+
+  <script src="./../js/memoria.js"></script>
+</body>
+
+<!--Script para animação css-->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    //animação css
+    AOS.init();
+</script>
+
+</html>
+
+
+
