@@ -27,4 +27,10 @@ router.delete("/deletar/:idAviso", function (req, res) {
     avisoController.deletar(req, res);
 });
 
+
+// criando select para gráfico de assuntos mais discutidos no forum
+router.get("/topicos", function (req, res) {
+    avisoController.listarTopicos(req, res);
+});
+
 module.exports = router;

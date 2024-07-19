@@ -16,7 +16,17 @@ function cadastrar(acertos, erros, fkUsuarioQuizSccp) {
     return database.executar(instrucao);
 }
 
+function listarQuizSccp() {
+    console.log("ACESSEI O SCCP MODEL \n function listarQuizSccp()");
+    var instrucaoSql = `
+        SELECT acertos, erros FROM quizsccp;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     cadastrar,
-    listar
+    listar,
+    listarQuizSccp
 };

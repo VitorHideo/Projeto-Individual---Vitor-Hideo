@@ -89,11 +89,30 @@ function deletar(idAviso) {
     return database.executar(instrucaoSql);
 }
 
+
+// Select da função listarTopicos para o nosso gráfico do ranking dos assuntos mais discutidos
+function listarTopicos() {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarTopicos()");
+    var instrucaoSql = `
+        SELECT 
+            titulo,
+            COUNT(*) as count
+        FROM aviso
+        GROUP BY titulo
+        ORDER BY count DESC
+        LIMIT 10;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     listar,
     listarPorUsuario,
     pesquisarDescricao,
     publicar,
     editar,
-    deletar
+    deletar,
+    listarTopicos
 }
+

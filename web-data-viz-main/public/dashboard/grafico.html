@@ -46,7 +46,7 @@
             </nav>
         </aside>
 
-        <main data-aos="zoom-in"  data-aos-duration="800" class="main-content">
+        <main data-aos="zoom-in" data-aos-duration="800" class="main-content">
             <header class="main-header">
                 <h1>
                     <center>Confira os seus resultados</center>
@@ -86,6 +86,15 @@
                 </div>
             </div>
 
+            <div style="margin-top: 180px;" class="info-grafic">
+                <h2>Top Tópicos</h2>
+                <div class="container-grafico-visitas">
+                    <div class="grafico-visitas">
+                        <canvas id="assuntosChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
             <div class="info-grafic3">
                 <h2>Total de Visitas Diárias</h2>
                 <div class="container-grafico-visitas">
@@ -101,131 +110,172 @@
 
     <script>
 
-    AOS.init();
+        AOS.init();
 
-    // Chamando todas as funções quando a página for carregada
-    function inicioDash() {
-        visitas();
-        mostrarGraficoVisitas();
-        mostrarUsuario();
-        mostrarGraficosQuiz();
-        calcularMediaAcertos();
-    }
-
-    // Registro do número de visitas na página
-    function visitas() {
-        let visitData = JSON.parse(localStorage.getItem('visitData')) || {};
-        let today = new Date().toISOString().split('T')[0];
-
-        if (!visitData[today]) {
-            visitData[today] = 0;
+        // Chamando todas as funções quando a página for carregada
+        function inicioDash() {
+            visitas();
+            mostrarGraficoVisitas();
+            mostrarUsuario();
+            mostrarGraficosQuiz();
+            calcularMediaAcertos();
         }
-        visitData[today]++;
 
-        localStorage.setItem('visitData', JSON.stringify(visitData));
-        document.getElementById('visit-count').innerText = visitData[today];
-    }
+        // Registro do número de visitas na página
+        function visitas() {
+            let visitData = JSON.parse(localStorage.getItem('visitData')) || {};
+            let today = new Date().toISOString().split('T')[0];
 
-    // Mostra gráfico de visitas
-    function mostrarGraficoVisitas() {
-        let visitData = JSON.parse(localStorage.getItem('visitData')) || {};
-        let dates = Object.keys(visitData);
-        let visits = Object.values(visitData);
+            if (!visitData[today]) {
+                visitData[today] = 0;
+            }
+            visitData[today]++;
 
-        const ctx = document.getElementById('visitsChart');
+            localStorage.setItem('visitData', JSON.stringify(visitData));
+            document.getElementById('visit-count').innerText = visitData[today];
+        }
 
-        // Configurando informações do gráfico
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: dates,
-                datasets: [{
-                    label: 'Visitas Diárias',
-                    data: visits,
-                    backgroundColor: 'black',
-                    borderColor: '#ffffff',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true // Configura o eixo y para começar do zero
+        // Mostra gráfico de visitas
+        function mostrarGraficoVisitas() {
+            let visitData = JSON.parse(localStorage.getItem('visitData')) || {};
+            let dates = Object.keys(visitData);
+            let visits = Object.values(visitData);
+
+            const ctx = document.getElementById('visitsChart');
+
+            // Configurando informações do gráfico
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Visitas Diárias',
+                        data: visits,
+                        backgroundColor: 'black',
+                        borderColor: '#ffffff',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true // Configura o eixo y para começar do zero
+                        }
                     }
                 }
-            }
+            });
+        }
+
+        // Mostrar o número do usuário pelo ID
+        function mostrarUsuario() {
+            const idUsuario = sessionStorage.ID_USUARIO || "usuário";
+            const nomeUsuario = sessionStorage.NOME_USUARIO || "usuário";
+            document.getElementById('total_usuario').innerText = idUsuario;
+            document.getElementById('b_usuario').innerText = nomeUsuario;
+        }
+
+        // Gráfico SCCP
+        async function mostrarGraficosQuiz() {
+            // Solicitação para obter os dados mais recentes do quiz SCCP do servidor
+            const response = await fetch('/sccp/listarQuiz');
+            const data = await response.json();
+
+            // Extraindo os acertos e erros dos dados recebidos
+            const quizAcertosSCCP = data.length > 0 ? data[0].acertos : 0;
+            const quizErrosSCCP = data.length > 0 ? data[0].erros : 0;
+
+            const ctx = document.getElementById('myChart').getContext('2d');
+
+            // Configurando informações do gráfico
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Acertos', 'Erros'],
+                    datasets: [{
+                        label: 'Quiz SCCP',
+                        data: [quizAcertosSCCP, quizErrosSCCP],
+                        backgroundColor: ['#75b2f4', '#ff4736'],
+                        font: {
+                            family: "Poppins, sans-serif",
+                            size: 20
+                        }
+                    }]
+                }
+            });
+
+            // Gráfico Geral
+            const quizAcertosGERAL = parseInt(sessionStorage.getItem('quiz_acertos_geral')) || 0;
+            const quizErrosGERAL = parseInt(sessionStorage.getItem('quiz_erros_geral')) || 0;
+            const ctx2 = document.getElementById('myChart2').getContext('2d');
+
+            // Configurando informações do gráfico
+            new Chart(ctx2, {
+                type: 'pie',
+                data: {
+                    labels: ['Acertos', 'Erros'],
+                    datasets: [{
+                        label: 'Quiz Geral',
+                        data: [quizAcertosGERAL, quizErrosGERAL],
+                        backgroundColor: ['#75b2f4', '#ff4736'],
+                        font: {
+                            family: "Poppins, sans-serif",
+                            size: 20
+                        }
+                    }]
+                }
+            });
+        } 
+
+        // Função para calcular a média de acertos do quiz
+        function calcularMediaAcertos() {
+            const quizAcertosSCCP = parseInt(sessionStorage.getItem('quiz_acertos_sccp')) || 0;
+            const quizErrosSCCP = parseInt(sessionStorage.getItem('quiz_erros_sccp')) || 0;
+            const quizAcertosGERAL = parseInt(sessionStorage.getItem('quiz_acertos_geral')) || 0;
+            const quizErrosGERAL = parseInt(sessionStorage.getItem('quiz_erros_geral')) || 0;
+
+            const totalAcertos = quizAcertosSCCP + quizAcertosGERAL;
+            const totalQuestoes = 20;
+
+            const mediaAcertos = totalQuestoes > 0 ? (totalAcertos / totalQuestoes * 10).toFixed(1) : 0;
+
+            document.getElementById('media-acertos').innerText = mediaAcertos;
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            mostrarGraficoAssuntos();
         });
-    }
 
-    // Mostrar o número do usuário pelo ID
-    function mostrarUsuario() {
-        const idUsuario = sessionStorage.ID_USUARIO || "usuário";
-        const nomeUsuario = sessionStorage.NOME_USUARIO || "usuário";
-        document.getElementById('total_usuario').innerText = idUsuario;
-        document.getElementById('b_usuario').innerText = nomeUsuario;
-    }
+        async function mostrarGraficoAssuntos() {
+            const response = await fetch('/avisos/topicos');
+            const data = await response.json();
 
-    // Gráfico SCCP
-    function mostrarGraficosQuiz() {
-        const quizAcertosSCCP = parseInt(sessionStorage.getItem('quiz_acertos_sccp')) || 0;
-        const quizErrosSCCP = parseInt(sessionStorage.getItem('quiz_erros_sccp')) || 0;
+            const labels = data.map(item => item.titulo);
+            const counts = data.map(item => item.count);
 
-        const ctx = document.getElementById('myChart').getContext('2d');
+            const ctx = document.getElementById('assuntosChart').getContext('2d');
 
-        // Configurando informações do gráfico
-        new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Acertos', 'Erros'],
-                datasets: [{
-                    label: 'Quiz SCCP',
-                    data: [quizAcertosSCCP, quizErrosSCCP],
-                    backgroundColor: ['#75b2f4', '#ff4736'],
-                    font: {
-                        family: "Poppins, sans-serif",
-                        size: 20
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Número de Publicações',
+                        data: counts,
+                        backgroundColor: '#646464',
+                        borderColor: 'black',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
-                }]
-            }
-        });
-
-        // Gráfico Geral
-        const quizAcertosGERAL = parseInt(sessionStorage.getItem('quiz_acertos_geral')) || 0;
-        const quizErrosGERAL = parseInt(sessionStorage.getItem('quiz_erros_geral')) || 0;
-        const ctx2 = document.getElementById('myChart2').getContext('2d');
-
-        // Configurando informações do gráfico
-        new Chart(ctx2, {
-            type: 'pie',
-            data: {
-                labels: ['Acertos', 'Erros'],
-                datasets: [{
-                    label: 'Quiz Geral',
-                    data: [quizAcertosGERAL, quizErrosGERAL],
-                    backgroundColor: ['#75b2f4', '#ff4736'],
-                    font: {
-                        family: "Poppins, sans-serif",
-                        size: 20
-                    }
-                }]
-            }
-        });
-    }
-
-    // Função para calcular a média de acertos do quiz
-    function calcularMediaAcertos() {
-        const quizAcertosSCCP = parseInt(sessionStorage.getItem('quiz_acertos_sccp')) || 0;
-        const quizErrosSCCP = parseInt(sessionStorage.getItem('quiz_erros_sccp')) || 0;
-        const quizAcertosGERAL = parseInt(sessionStorage.getItem('quiz_acertos_geral')) || 0;
-        const quizErrosGERAL = parseInt(sessionStorage.getItem('quiz_erros_geral')) || 0;
-
-        const totalAcertos = quizAcertosSCCP + quizAcertosGERAL;
-        const totalQuestoes = 20;
-
-        const mediaAcertos = totalQuestoes > 0 ? (totalAcertos / totalQuestoes * 10).toFixed(1) : 0;
-
-        document.getElementById('media-acertos').innerText = mediaAcertos;
-    }
+                }
+            });
+        }
     </script>
 </body>
 
