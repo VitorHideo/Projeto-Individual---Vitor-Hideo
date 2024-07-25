@@ -8,7 +8,7 @@ function listar() {
     return database.executar(instrucao);
 }
 
-function cadastrar(acertos, erros, fkUsuarioQuizGeral) {
+function cadastrarGeral(acertos, erros, fkUsuarioQuizGeral) {
     var instrucao = `
         INSERT INTO quizGeral (acertos, erros, fkUsuarioQuizGeral) VALUES (${acertos}, ${erros}, ${fkUsuarioQuizGeral});
     `;
@@ -17,6 +17,6 @@ function cadastrar(acertos, erros, fkUsuarioQuizGeral) {
 }
 
 module.exports = {
-    cadastrar,
+    cadastrarGeral,
     listar
 };

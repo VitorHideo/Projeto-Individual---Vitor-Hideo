@@ -8,10 +8,10 @@ function listar(req, res) {
     });
 }
 
-function cadastrar(req, res) {
+function cadastrarGeral(req, res) {
     var { acertos, erros, fkUsuarioQuizGeral } = req.body;
 
-    geralModel.cadastrar(acertos, erros, fkUsuarioQuizGeral).then(function(resposta) {
+    geralModel.cadastrarGeral(acertos, erros, fkUsuarioQuizGeral).then(function(resposta) {
         res.status(200).send("Resultados do quiz salvos com sucesso");
     }).catch(function(erro) {
         res.status(500).json(erro.sqlMessage);
@@ -20,5 +20,5 @@ function cadastrar(req, res) {
 
 module.exports = {
     listar,
-    cadastrar
+    cadastrarGeral
 };

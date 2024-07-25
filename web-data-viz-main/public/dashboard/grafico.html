@@ -107,6 +107,8 @@
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
 
     <script>
 
@@ -200,8 +202,30 @@
                             size: 20
                         }
                     }]
-                }
+                },
+                options: {
+                    plugins: {
+                        datalabels: {
+                            formatter: (value, context) => {
+                                let sum = 0;
+                                let dataArr = context.chart.data.datasets[0].data;
+                                dataArr.map(data => {
+                                    sum += data;
+                                });
+                                let percentage = (value * 100 / sum).toFixed(0) + "%";
+                                return percentage;
+                            },
+                            color: '#fff',
+                            font: {
+                                family: "Poppins, sans-serif",
+                                size: 20
+                            }
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
             });
+
 
             // Gráfico Geral
             const quizAcertosGERAL = parseInt(sessionStorage.getItem('quiz_acertos_geral')) || 0;
@@ -222,9 +246,30 @@
                             size: 20
                         }
                     }]
-                }
+                },
+                options: {
+                    plugins: {
+                        datalabels: {
+                            formatter: (value, context) => {
+                                let sum = 0;
+                                let dataArr = context.chart.data.datasets[0].data;
+                                dataArr.map(data => {
+                                    sum += data;
+                                });
+                                let percentage = (value * 100 / sum).toFixed(0) + "%";
+                                return percentage;
+                            },
+                            color: '#fff',
+                            font: {
+                                family: "Poppins, sans-serif",
+                                size: 20
+                            }
+                        }
+                    }
+                },
+                plugins: [ChartDataLabels]
             });
-        } 
+        }
 
         // Função para calcular a média de acertos do quiz
         function calcularMediaAcertos() {
@@ -270,7 +315,15 @@
                 options: {
                     scales: {
                         y: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            ticks: {
+                                // Ensure ticks are integers
+                                callback: function (value) {
+                                    if (Number.isInteger(value)) {
+                                        return value;
+                                    }
+                                }
+                            }
                         }
                     }
                 }

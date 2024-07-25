@@ -99,8 +99,7 @@ function listarTopicos() {
             COUNT(*) as count
         FROM aviso
         GROUP BY titulo
-        ORDER BY count DESC
-        LIMIT 10;
+        ORDER BY count DESC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

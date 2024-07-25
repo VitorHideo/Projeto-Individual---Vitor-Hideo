@@ -157,7 +157,7 @@ function checkAnswer(button) {
 }
 
 function saveQuizResults(acertos, erros, fkUsuarioQuizGeral) {
-    fetch('/geral/cadastrar', {
+    fetch('/geral/cadastrarGeral', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -184,12 +184,12 @@ function showScore() {
 
     // Armazenar resultados no sessionStorage
     sessionStorage.setItem('quiz_acertos_geral', points);
-    sessionStorage.setItem('quiz_erros_geral', questions.length - points);
+    sessionStorage.setItem('quiz_erros_geral', questions2.length - points);
 
     var fkUsuarioQuizGeral = sessionStorage.getItem('usuario_id');
 
     // Salvar os resultados no banco de dados
-    saveQuizResults(points, questions.length - points, fkUsuarioQuizGeral);
+    saveQuizResults(points, questions2.length - points, fkUsuarioQuizGeral);
 }
 
 // Inicialização do quiz

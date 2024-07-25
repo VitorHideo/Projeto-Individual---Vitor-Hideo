@@ -3,9 +3,9 @@ var router = express.Router();  //config padrao para o uso da biblioteca node
 
 var geralController = require("../controllers/geralController");  // Importando o Controller 
 
-router.post("/cadastrar", function (req, res) {
+router.post("/cadastrarGeral", function (req, res) {
     // função a ser chamada quando acessar /carros/cadastrar
-    geralController.cadastrar(req, res);
+    geralController.cadastrarGeral(req, res);
 });
 
 router.get("/listar", function (req, res) {
