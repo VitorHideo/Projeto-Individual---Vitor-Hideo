@@ -19,6 +19,8 @@ var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var avisosRouter = require("./src/routes/avisos");
 
+
+// Criando as rotas dos QUIZZZ
 var sccpRouter = require("./src/routes/sccp");
 var geralRouter = require("./src/routes/geral");
 
@@ -32,6 +34,7 @@ app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/avisos", avisosRouter);
 
+// Rota Quiz, referenciando para o diretorio Routes
 app.use("/sccp", sccpRouter);
 app.use("/geral", geralRouter);
 

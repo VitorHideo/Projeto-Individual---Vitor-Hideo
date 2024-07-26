@@ -13,4 +13,9 @@ router.get("/listar", function (req, res) {
     geralController.listar(req, res);
 });
 
+// Criando a rota para o select de acertos e erros do quiz
+router.get("/listarQuiz", function (req, res) {
+    geralController.listarQuizGeral(req, res);
+});
+
 module.exports = router;    //importar configurações de outros arquivos

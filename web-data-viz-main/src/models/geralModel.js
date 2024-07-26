@@ -1,5 +1,8 @@
+// Config do Banco de dados
 var database = require("../database/config");
 
+
+// Função listar, com o var instrução para realizar o select da tabela QuizGeral
 function listar() {
     var instrucao = `
         SELECT * FROM quizGeral;
@@ -8,6 +11,8 @@ function listar() {
     return database.executar(instrucao);
 }
 
+
+// Função CadastrarGeral, com o var instrução para dar um insert na tabela QuizGeral dos acertos e erros e fkUsu
 function cadastrarGeral(acertos, erros, fkUsuarioQuizGeral) {
     var instrucao = `
         INSERT INTO quizGeral (acertos, erros, fkUsuarioQuizGeral) VALUES (${acertos}, ${erros}, ${fkUsuarioQuizGeral});
@@ -16,7 +21,19 @@ function cadastrarGeral(acertos, erros, fkUsuarioQuizGeral) {
     return database.executar(instrucao);
 }
 
+// Função listarQuizGeral, com o var intrução para listar apenas os acertos e erros da tabela quizGeral
+function listarQuizGeral() {
+    console.log("ACESSEI O GERAL MODEL \n function listarQuizGeral()");
+    var instrucaoSql = `
+        SELECT acertos, erros FROM quizGeral;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+// Export das funções
 module.exports = {
     cadastrarGeral,
-    listar
+    listar,
+    listarQuizGeral
 };
