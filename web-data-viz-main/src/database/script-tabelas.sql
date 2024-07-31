@@ -25,9 +25,26 @@ CREATE TABLE aviso (
 	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
 
-SELECT * FROM usuario;
+CREATE TABLE quizsccp (
+	idQuiz INT PRIMARY KEY AUTO_INCREMENT,
+	acertos int,
+	erros int,
+	fkUsuarioQuizSccp int,
+	FOREIGN KEY (fkUsuarioQuizSccp) REFERENCES usuario(id)
+);
 
-SELECT * FROM aviso;
+CREATE TABLE quizGeral (
+	idQuiz INT PRIMARY KEY auto_increment,
+	acertos int,
+	erros int,
+	fkUsuarioQuizGeral int,
+	FOREIGN KEY (fkUsuarioQuizGeral) references usuario(id)
+);
 
-SELECT * FROM usuario JOIN aviso 
-	ON fk_usuario = usuario.id;
+select * from usuario;
+
+select * from aviso;
+
+select * from quizsccp;
+
+select * from quizgeral;

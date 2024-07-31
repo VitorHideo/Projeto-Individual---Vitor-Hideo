@@ -176,20 +176,20 @@
             document.getElementById('b_usuario').innerText = nomeUsuario;
         }
 
-        // Gráfico SCCP
+        // função para mostrar o gráfico dos quizez sccp e geral
         async function mostrarGraficosQuiz() {
-            // Solicitação para obter os dados mais recentes do quiz SCCP do servidor
-            const response = await fetch('/sccp/listarQuiz');
-            const data = await response.json();
+            // Gráfico SCCP
 
-            // Extraindo os acertos e erros dos dados recebidos
-            const quizAcertosSCCP = data.length > 0 ? data[0].acertos : 0;
-            const quizErrosSCCP = data.length > 0 ? data[0].erros : 0;
+            //puxando os dados do banco da dados para fazer a platagem nos gráficos
+            const responseSCCP = await fetch('/sccp/listarQuiz');
+            const dataSCCP = await responseSCCP.json();
+            const quizAcertosSCCP = dataSCCP.length > 0 ? dataSCCP[0].acertos : 0;
+            const quizErrosSCCP = dataSCCP.length > 0 ? dataSCCP[0].erros : 0;
 
-            const ctx = document.getElementById('myChart').getContext('2d');
 
-            // Configurando informações do gráfico
-            new Chart(ctx, {
+            // Criando o gráfico utilizando o chart.js
+            const ctxSCCP = document.getElementById('myChart').getContext('2d');
+            new Chart(ctxSCCP, {
                 type: 'pie',
                 data: {
                     labels: ['Acertos', 'Erros'],
@@ -208,11 +208,11 @@
                         datalabels: {
                             formatter: (value, context) => {
                                 let sum = 0;
-                                let dataArr = context.chart.data.datasets[0].data;
+                                let dataArr = context.chart.data.datasets[0].data;  
                                 dataArr.map(data => {
                                     sum += data;
                                 });
-                                let percentage = (value * 100 / sum).toFixed(0) + "%";
+                                let percentage = (value * 100 / sum).toFixed(0) + "%";  // configurando o gráfico para mostrar a porcentagem de acertos e erros 
                                 return percentage;
                             },
                             color: '#fff',
@@ -226,14 +226,18 @@
                 plugins: [ChartDataLabels]
             });
 
-
             // Gráfico Geral
-            const quizAcertosGERAL = parseInt(sessionStorage.getItem('quiz_acertos_geral')) || 0;
-            const quizErrosGERAL = parseInt(sessionStorage.getItem('quiz_erros_geral')) || 0;
-            const ctx2 = document.getElementById('myChart2').getContext('2d');
 
-            // Configurando informações do gráfico
-            new Chart(ctx2, {
+            //Puxando dos dados do banco de dados para fazer a platagem nos gráficos 
+            const responseGeral = await fetch('/geral/listarQuiz');
+            const dataGeral = await responseGeral.json();
+            const quizAcertosGERAL = dataGeral.length > 0 ? dataGeral[0].acertos : 0;
+            const quizErrosGERAL = dataGeral.length > 0 ? dataGeral[0].erros : 0;
+
+
+            // criando os gráficos utilizando o chart.js
+            const ctxGeral = document.getElementById('myChart2').getContext('2d');
+            new Chart(ctxGeral, {
                 type: 'pie',
                 data: {
                     labels: ['Acertos', 'Erros'],

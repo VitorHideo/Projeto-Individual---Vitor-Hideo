@@ -21,11 +21,12 @@ function cadastrarGeral(acertos, erros, fkUsuarioQuizGeral) {
     return database.executar(instrucao);
 }
 
-// Função listarQuizGeral, com o var intrução para listar apenas os acertos e erros da tabela quizGeral
+
+// Função listarQuizGeral, com a instrução SQL para listar apenas os acertos e erros do último quiz
 function listarQuizGeral() {
     console.log("ACESSEI O GERAL MODEL \n function listarQuizGeral()");
     var instrucaoSql = `
-        SELECT acertos, erros FROM quizGeral;
+        SELECT acertos, erros FROM quizGeral ORDER BY idquiz DESC LIMIT 1;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

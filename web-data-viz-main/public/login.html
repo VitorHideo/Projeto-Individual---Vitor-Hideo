@@ -36,18 +36,15 @@
             </div>
         </div>
         <div class="container">
-            <div data-aos="zoom-in-up"  class="card2">
+            <div data-aos="zoom-in-up" class="card2">
                 <div class="icone"><img src="img/logincadsatro.png" alt=""></div>
                 <h2>Login</h2>
 
                 <div class="formulario">
-
-
                     <label>E-mail</label>
                     <div class="input">
                         <i class="fa-solid fa-envelope"></i>
                         <input id="email_input" type="text" placeholder="Login">
-      
                     </div>
 
                     <label>Senha</label>
@@ -69,8 +66,10 @@
     </div>
 
     <div class="footer">
-        <center><img style="width: 35px; margin-top: 10px;" src="./img/footer.jpg" alt=""><p style="margin: 0;">Feito por Vitor Hideo - SPTECH &copy; | Site do Sport Club Corinthians Paulista</p></center>
-   </div>
+        <center><img style="width: 35px; margin-top: 10px;" src="./img/footer.jpg" alt="">
+        <p style="margin: 0;">Feito por Vitor Hideo - SPTECH &copy; | Site do Sport Club Corinthians Paulista</p>
+        </center>
+    </div>
 
 </body>
 
@@ -83,10 +82,16 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
-
     //animação css
     AOS.init();
 
+    function aguardar() {
+        document.getElementById('div_aguardar').style.display = 'block';
+    }
+
+    function finalizarAguardar() {
+        document.getElementById('div_aguardar').style.display = 'none';
+    }
 
     function entrar() {
         aguardar();
@@ -95,13 +100,12 @@
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
+            cardErro.style.display = "block";
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             finalizarAguardar();
             return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
+        } else {
+            setInterval(sumirMensagem, 5000);
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -117,11 +121,9 @@
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+            console.log("ESTOU NO THEN DO entrar()!");
 
             if (resposta.ok) {
-                console.log(resposta);
-
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
@@ -132,28 +134,26 @@
                     setTimeout(function () {
                         window.location = "./dashboard/quiz.html";
                     }, 2500);
-
                 });
-
             } else {
-
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                    finalizarAguardar();
+                    mensagem_erro.innerHTML = texto;
+                    cardErro.style.display = "block";
                 });
             }
-
         }).catch(function (erro) {
             console.log(erro);
-        })
+            finalizarAguardar();
+        });
 
         return false;
     }
 
     function sumirMensagem() {
-        cardErro.style.display = "none"
+        cardErro.style.display = "none";
     }
-
 </script>

@@ -9,9 +9,10 @@ function listar(req, res) {
 }
 
 function cadastrar(req, res) {
-    var { acertos, erros, fkUsuarioQuizSccp } = req.body;   // var das acertos e erros e usuario do quiz
+    var { acertos, erros, fkUsuarioQuizSccp } = req.body;   
+    console.log('Recebido no servidor:', { acertos, erros, fkUsuarioQuizSccp });
 
-    sccpModel.cadastrar(acertos, erros, fkUsuarioQuizSccp).then(function(resposta) {    // Função cadastrar que estará nos models
+    sccpModel.cadastrar(acertos, erros, fkUsuarioQuizSccp).then(function(resposta) {    
         res.status(200).send("Resultados do quiz salvos com sucesso");
     }).catch(function(erro) {
         res.status(500).json(erro.sqlMessage);

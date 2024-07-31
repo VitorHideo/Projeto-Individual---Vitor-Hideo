@@ -185,6 +185,7 @@ function showScore() {
     sessionStorage.setItem('quiz_erros_sccp', questions.length - points);
 
     var fkUsuarioQuizSccp = sessionStorage.getItem('usuario_id');
+    console.log('fkUsuarioQuizSccp:', fkUsuarioQuizSccp); // Verifique se está correto
 
     // Salvar os resultados no banco de dados
     saveQuizResults(points, questions.length - points, fkUsuarioQuizSccp)
@@ -196,4 +197,3 @@ function showScore() {
 
 // Inicialização do quiz
 init();
-
