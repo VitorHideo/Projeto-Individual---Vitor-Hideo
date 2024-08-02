@@ -33,4 +33,9 @@ router.get("/topicos", function (req, res) {
     avisoController.listarTopicos(req, res);
 });
 
+//criando select para gráfico de usuarios que possuem mais publicações do forum
+router.get('/publicacoesPorUsuario', function(req, res) {
+    avisoController.publicacoesPorUsuario(req, res);
+});
+
 module.exports = router;

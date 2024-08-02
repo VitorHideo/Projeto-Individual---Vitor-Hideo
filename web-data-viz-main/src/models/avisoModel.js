@@ -105,6 +105,20 @@ function listarTopicos() {
     return database.executar(instrucaoSql);
 }
 
+// Select da função publicacoesPorUsuario para usuarios com mais publicações no forum
+function publicacoesPorUsuario() {
+    var instrucaoSql = `
+        SELECT usuario.nome, COUNT(aviso.id) AS publicacoes 
+        FROM aviso
+        INNER JOIN usuario ON aviso.fk_usuario = usuario.id
+        GROUP BY usuario.nome
+        ORDER BY publicacoes DESC;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+// Export de todas as funções
 module.exports = {
     listar,
     listarPorUsuario,
@@ -112,6 +126,7 @@ module.exports = {
     publicar,
     editar,
     deletar,
-    listarTopicos
+    listarTopicos,
+    publicacoesPorUsuario
 }
 

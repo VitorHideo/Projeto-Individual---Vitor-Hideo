@@ -144,6 +144,20 @@ function listarTopicos(req, res) {
         });
 }
 
+// função para usuarios com mais publicações
+function publicacoesPorUsuario(req, res) {
+    avisoModel.publicacoesPorUsuario().then(function(resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!");
+        }
+    }).catch(function(erro) {
+        console.log("Houve um erro ao buscar os dados de publicações por usuário: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 
 // atualizando o export com nosso nova função
 module.exports = {
@@ -153,5 +167,6 @@ module.exports = {
     publicar,
     editar,
     deletar,
-    listarTopicos
+    listarTopicos,
+    publicacoesPorUsuario
 }

@@ -86,14 +86,26 @@
                 </div>
             </div>
 
-            <div style="margin-top: 180px;" class="info-grafic">
-                <h2>Top Tópicos</h2>
+            <div style="display: flex; flex-direction: row; margin-top: 180px;">
+
+            <div class="info-grafic">
+                <h2>Tópicos com Mais Publicações</h2>
                 <div class="container-grafico-visitas">
                     <div class="grafico-visitas">
                         <canvas id="assuntosChart"></canvas>
                     </div>
                 </div>
             </div>
+
+            <div class="info-grafic">
+                <h2>Usuários com Mais Publicações</h2>
+                <div class="container-grafico-visitas">
+                    <div class="grafico-visitas">
+                        <canvas id="publicacoesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
 
             <div class="info-grafic3">
                 <h2>Total de Visitas Diárias</h2>
@@ -208,7 +220,7 @@
                         datalabels: {
                             formatter: (value, context) => {
                                 let sum = 0;
-                                let dataArr = context.chart.data.datasets[0].data;  
+                                let dataArr = context.chart.data.datasets[0].data;
                                 dataArr.map(data => {
                                     sum += data;
                                 });
@@ -311,7 +323,7 @@
                     datasets: [{
                         label: 'Número de Publicações',
                         data: counts,
-                        backgroundColor: '#646464',
+                        backgroundColor: '#E88225',
                         borderColor: 'black',
                         borderWidth: 1
                     }]
@@ -333,6 +345,50 @@
                 }
             });
         }
+
+        async function mostrarGraficoPublicacoesPorUsuario() {
+            const response = await fetch('/avisos/publicacoesPorUsuario');
+            const data = await response.json();
+
+            const labels = data.map(item => item.nome);
+            const counts = data.map(item => item.publicacoes);
+
+            const ctx = document.getElementById('publicacoesChart').getContext('2d');
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Número de Publicações',
+                        data: counts,
+                        backgroundColor: '#E88225',
+                        borderColor: '#000000',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                // Ensure ticks are integers
+                                callback: function (value) {
+                                    if (Number.isInteger(value)) {
+                                        return value;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            mostrarGraficoPublicacoesPorUsuario();
+        });
+
     </script>
 </body>
 
